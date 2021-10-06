@@ -1,0 +1,22 @@
+{
+  "/obi/api/*": {
+    "target": "http://obi-frontend.k8sds.gscorp.ad",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/obi/inversiones/api/*": {
+    "target": "http://obi-frontend.k8sds.gscorp.ad",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/Pages/Token/Token.aspx": {
+    "target": "http://localhost:4200",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/Pages/Token/Token.aspx$": "/obi/assets/jwt.txt"
+    }
+  }
+}

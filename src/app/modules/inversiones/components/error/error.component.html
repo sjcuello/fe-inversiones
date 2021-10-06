@@ -1,0 +1,11 @@
+<div class="error">
+  <ng-lottie class="error--icono" [options]="options"></ng-lottie>
+  <div class="error--contenido">
+    <h1 class="error--titulo">{{ titulo }}</h1>
+    <p *ngIf="subtitulo" class="error--subtitulo">{{ subtitulo }}</p>
+  </div>
+
+  <div class="error--boton">
+    <ftya-boton [textoBoton]="textoBoton" (accionBoton)="clickBoton()"></ftya-boton>
+  </div>
+</div>

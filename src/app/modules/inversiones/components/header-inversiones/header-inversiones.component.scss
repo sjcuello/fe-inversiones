@@ -1,0 +1,70 @@
+@import '~src/assets/colors';
+@import '~src/assets/variables';
+
+:host {
+  .header-inversiones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    padding: 0 50px;
+    background-color: $blanco;
+    border-bottom: solid 1px $gris-rosado;
+
+    &__titulo {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 18px;
+      letter-spacing: 0.1px;
+      text-align: center;
+      color: $gris-oscuro;
+      margin: auto;
+    }
+
+    .btn-header {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      padding: 10px 0;
+      color: $base-negro;
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: 0.1px;
+      position: absolute;
+      left: 50px;
+
+      &.cdk-mouse-focused {
+        outline: none;
+      }
+
+      .icon {
+        width: 17px;
+        height: 17px;
+        padding: 10px 0;
+      }
+    }
+  }
+}
+
+@media (max-width: map_get($grid-breakpoints, 'md')) {
+  :host {
+    .header-inversiones {
+      min-width: 300px;
+      padding: 0 15px;
+
+      .btn-header {
+        left: 15px;
+      }
+    }
+  }
+}
+
+@media (max-width: map_get($grid-breakpoints, 'sm')) {
+  :host {
+    .header-inversiones {
+      &__titulo {
+        max-width: 240px;
+      }
+    }
+  }
+}

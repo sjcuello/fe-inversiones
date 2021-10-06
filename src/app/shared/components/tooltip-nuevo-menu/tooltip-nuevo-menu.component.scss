@@ -1,0 +1,142 @@
+@import "~src/assets/variables";
+
+.notificacion-popup {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 58px;
+  left: 10px;
+  width: 408px;
+  padding: 30px 23px;
+  max-width: 100vw;
+  min-height: 120px;
+  background-color: white;
+  box-shadow: -1px -1px 7px 0 rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  margin-top: 10px;
+  transition: opacity 250ms linear;
+  z-index: 1000;
+
+  &.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 250ms, opacity 250ms linear;
+  }
+}
+
+.notificacion-popup::before {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  left: 13px;
+  top: -10px;
+  border-width: 10px 8px;
+  border-style: solid;
+  border-top: none;
+  border-color: transparent transparent white transparent;
+  filter: drop-shadow(1px -3px 4px rgba(0, 0, 0, 0.1));
+}
+
+.notificacion-popup .notificacion-popup__side-image {
+  display: inline-block;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 79px;
+  width: 34%;
+  margin-right: 15px;
+}
+
+.notificacion-popup .notificacion-popup__side-content {
+  display: inline-block;
+}
+
+.notificacion-popup .notificacion-popup__title {
+  color: #ee2527;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.19px;
+  margin: 0 0 5px;
+}
+
+.notificacion-popup .notificacion-popup__paragraph {
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0.22px;
+  color: #939393;
+  margin: 0 0 8px;
+}
+
+.notificacion-popup .notificacion-popup__action {
+  display: inline-flex;
+  align-content: center;
+  color: #ee2527;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.1px;
+}
+
+.notificacion-popup .notificacion-popup__action::after {
+  content: '';
+  display: inline-block;
+  background: no-repeat center url(~src/assets/icons/flecha-derecha.svg);
+  background-size: cover;
+  width: 15px;
+  height: 15px;
+}
+
+.notificacion-popup a.notificacion-popup__action,
+.notificacion-popup a.notificacion-popup__action:hover,
+.notificacion-popup a.notificacion-popup__action:visited {
+  text-decoration: none;
+}
+
+.notificacion-popup .btn-link {
+  -webkit-appearance: button;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  border: none;
+
+  &:hover {
+    border-color: transparent;
+    box-shadow: none;
+  }
+}
+
+#notificacionNuevoMenu.notificacion-popup .notificacion-popup__side-image {
+  background-image: url(~src/assets/images/pointing.svg);
+}
+
+@media (max-width: map_get($grid-breakpoints, 'md')) {
+  .notificacion-popup {
+    width: 355px;
+    min-width: 200px;
+    max-width: 95vw;
+    padding: 24px 15px 20px;
+    margin-right: 10px;
+
+    .notificacion-popup__side-image {
+      background-position: center top;
+      margin-right: 14px;
+      width: 33%;
+    }
+
+    .notificacion-popup__title {
+      font-size: 18px;
+      letter-spacing: -0.17px;
+      margin: 0 0 3px;
+    }
+
+    .notificacion-popup__paragraph {
+      font-size: 12px;
+      line-height: 14px;
+      letter-spacing: 0.2px;
+      margin: 0 0 4px;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/obi/inversiones/api/v1.0/dolar-mep/detalle_compra?inversion=60000"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "detalle-compras.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

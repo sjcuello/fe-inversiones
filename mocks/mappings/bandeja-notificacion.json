@@ -1,0 +1,13 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/obi/api/bandejanotificaciones"
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "bandeja-notificacion.json",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}

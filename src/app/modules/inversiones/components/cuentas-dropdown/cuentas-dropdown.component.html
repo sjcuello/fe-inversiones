@@ -1,0 +1,9 @@
+<mat-form-field>
+  <mat-label>{{ label }}</mat-label>
+  <mat-select [(value)]="cuentaSeleccionada" (selectionChange)="seleccionarCuenta($event)" disableOptionCentering>
+    <mat-option *ngFor="let cuenta of cuentas" [value]="cuenta.identificador"
+      [disabled]="!cuenta.saldo || cuenta.saldo < 0">
+      {{ generarOpcionesDropdownCuentas(cuenta) }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

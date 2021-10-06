@@ -1,0 +1,21 @@
+<div
+  id="notificacionNuevoMenu"
+  class="notificacion-popup hidden"
+  role="dialog"
+  aria-labelledby="notificacionNuevoMenuTitle"
+  aria-describedby="notificacionNuevoMenuDesc"
+  [class.hidden]="isHidden"
+>
+  <div class="notificacion-popup__side-image"></div>
+  <div class="notificacion-popup__side-content">
+    <h5 id="notificacionNuevoMenuTitle" class="notificacion-popup__title">¡Conocé tu nuevo Menú!</h5>
+
+    <p id="notificacionNuevoMenuDesc" class="notificacion-popup__paragraph">
+      Acá vas a encontrar toda la información que necesitás.
+    </p>
+
+    <button id="notificacionNuevoMenuDismiss" class="btn-link notificacion-popup__action" role="button" (click)="changeStatus(false)">
+      Entendido
+    </button>
+  </div>
+</div>

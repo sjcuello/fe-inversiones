@@ -1,0 +1,352 @@
+@import "~src/assets/colors";
+@import "~src/assets/variables";
+
+.card {
+  width: 100%;
+  height: 100%;
+  min-height: 377px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid $gris-blanco-fondo;
+  box-shadow: 0px 4px 8px 0px $gris-sombra;
+  padding: 0px;
+  border-radius: 0px !important;
+
+  &-encabezado {
+    border-radius: 0px !important;
+    border: none;
+    box-shadow: none;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &-titulo {
+      font-family: "Whitney", sans-serif;
+      color: $base-negro;
+      margin-top: 10% !important;
+      font-size: 26px;
+      font-weight: 500;
+    }
+
+    &-info {
+      font-family: "Heebo", sans-serif;
+      color: $gris-calido;
+      font-size: 16px;
+      text-align: center;
+      width: 90%;
+    }
+
+    &__tooltip-icon {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      display: inline-flex;
+      vertical-align: middle;
+    }
+  }
+
+  &-vacia {
+    border-radius: 0px !important;
+    border: 1px solid $gris-blanco-fondo;
+    box-shadow: inset 0px 11px 8px -10px $gris-sombra, 0px 4px 8px 0px $gris-sombra;
+    background-color: $gris-blanco-fondo;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    &-titulo {
+      font-family: "Heebo", sans-serif;
+      color: $gris-calido;
+      font-size: 18px;
+      font-weight: 400;
+    }
+  }
+
+  &-unico {
+    border: none;
+    box-shadow: none;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__boton-unico {
+      padding: 50px 10px 90px 10px;
+    }
+    &-titulo {
+      font-family: "Heebo", sans-serif;
+      color: $gris-calido;
+      font-size: 18px;
+      font-weight: 400;
+      width: 60%;
+      text-align: center;
+    }
+  }
+
+  &-container {
+    border: none;
+    box-shadow: none;
+    width: 100%;
+    height: 52%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-child {
+      width: 95%;
+      height: 100%;
+      border-radius: 7px;
+      margin: 0px;
+      .venta-container {
+        display: grid;
+        grid-template-rows: 1fr 0.5fr;
+      }
+
+      .contenido-triple {
+        display: grid;
+        grid-template-columns: 3fr 1fr 4fr;
+        grid-column-gap: 1%;
+        .seccion-der,
+        .seccion-izq {
+          width: 100%;
+          display: grid;
+          grid-template-rows: 1fr 1fr;
+          justify-content: center;
+          align-items: center;
+        }
+        .seccion-central {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 70%;
+        }
+      }
+    }
+  }
+}
+
+.titulo-seccion {
+  color: $base-negro;
+  margin: 0px;
+  margin-bottom: 1fr;
+  font-family: "Heebo", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 10px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.titulo-seccion-dolares {
+  color: $verde-agua;
+  margin: 0px;
+  margin-bottom: 1fr;
+  font-family: "Heebo", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 10px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.cantidad-unidades {
+  color: $base-negro;
+  margin: 0px;
+  margin-top: 10%;
+  font-family: "Heebo", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 22px;
+  letter-spacing: -0.65px;
+}
+
+.cantidad-nominales {
+  color: $base-negro;
+  margin: 0px;
+  font-family: "Heebo", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 22px;
+  letter-spacing: -0.65px;
+}
+
+.cantidad-dolares-estimado {
+  color: $verde-agua;
+  margin: 0px;
+  font-family: "Heebo", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 22px;
+  letter-spacing: -0.65px;
+}
+
+.dolares {
+  color: $gris-opaco;
+  margin: 0px;
+  margin-top: 7%;
+  font-family: "Heebo", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.subtitulo-seccion {
+  color: $base-negro;
+  margin: 0px;
+  margin-top: 3%;
+  font-family: "Whitney", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 10px;
+}
+
+.footer {
+  background-color: $verde-claro;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.texto-parking {
+  margin: 15% 2%;
+  font-family: "Heebo", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.accion-nominales {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2%;
+  margin-bottom: 1%;
+  .boton-venta {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    border: solid 1px red;
+    border-radius: 7px;
+  }
+}
+
+.contorno {
+  border: solid 1px $verde-agua;
+}
+
+.solicitud-venta {
+  background-color: $verde-agua-claro;
+  &-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transform: scale(0.95);
+  }
+}
+
+.titulo-solicitud-venta {
+  color: $verde-agua;
+  font-family: "Heebo", sans-serif;
+  margin-top: 5%;
+  margin-bottom: 0%;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: 0px;
+  text-align: center;
+}
+
+.subtitulo-solicitud-venta {
+  color: $gris-calido;
+  font-family: "Heebo", sans-serif;
+  margin-top: 1%;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0px;
+  text-align: center;
+}
+
+::ng-deep .mat-tooltip {
+  background-color: $blanco;
+  box-shadow: 0px 1px 2px $negro-sombra;
+  border-radius: 5px;
+  color: $base-negro !important;
+  font-size: 12px;
+  font-family: "Heebo", sans-serif;
+}
+
+.mat-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-card-content {
+  flex-grow: 1.5;
+  margin-bottom: 1%;
+}
+
+.mat-card-footer {
+  overflow: hidden;
+  min-height: 25px;
+  max-height: 30%;
+}
+.icon-restart:hover {
+  cursor: pointer;
+}
+
+span {
+  text-decoration: underline;
+}
+
+@media (max-width: 1200px) and (max-height: 1200px) {
+  .solicitud-venta-content {
+    transform: scale(0.75);
+    height: 50%;
+  }
+}
+
+@media (max-width: 900px) {
+  :host {
+    .contenido-triple {
+      grid-template-columns: none !important;
+      .seccion-central {
+        display: none !important;
+      }
+    }
+    .cantidad-dolares-estimado,
+    .cantidad-nominales {
+      font-size: 1.2rem;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 1300px) and (max-height: 1300px) {
+  .seccion-central {
+    .imagen-seccion {
+      display: none;
+    }
+  }
+  .card-encabezado-info {
+    font-size: 14px;
+  }
+}

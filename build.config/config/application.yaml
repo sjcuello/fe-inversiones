@@ -1,0 +1,25 @@
+---
+apiVersion: v1
+data:
+  settings.json: |
+    {
+      "backendUrl": "/obi/api/",
+      "backendTarjetasUrl": "/obi/tarjetas/api/",
+      "backendCuentasUrl": "/obi/cuentas/api/",
+      "backendUrlInversiones": "{{ (ds "properties").CONFIG.URL_INVERSIONES }}",
+      "backendUrlInversionesHome": "{{ (ds "properties").CONFIG.URL_INVERSIONES_HOME }}",
+      "jwtProviderUrl": "/Pages/Token/Token.aspx",
+      "googleTagManagerId": "{{ (ds "properties").CONFIG.GOOGLE_TAG }}",
+      "googleAnalyticsIds": {{ (ds "properties").CONFIG.GOOGLE_ANALYTICS_ID | data.ToJSON }},
+      "idleSeconds": {{ (ds "properties").CONFIG.IDLE_SECONDS }},
+      "idleTimeoutSeconds": {{ (ds "properties").CONFIG.IDLE_TIMEOUT }},
+      "mostrarAccesosDirectos": true,
+      "logoffUrl": "https://www.supervielle.com.ar/log-off",
+      "prestamosUrl": "/Pages/Obi/Loans/ObtenerOferta.aspx",
+      "cmsUrl": "{{ (ds "properties").CONFIG.CMS_URL }}",
+      "activateUrl": "{{ (ds "properties").CONFIG.ACTIVATE_URL }}"
+    }
+kind: ConfigMap
+metadata:
+  name: {{ (ds "properties").APP_NAME }}-cm
+  namespace: {{ (ds "properties").NAMESPACE }}

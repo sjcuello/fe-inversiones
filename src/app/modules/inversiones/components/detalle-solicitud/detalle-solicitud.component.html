@@ -1,0 +1,78 @@
+<div class="detalle">
+  <div class="detalle-contenedor">
+    <ul class="detalle-datos">
+      <li class="detalle-dato">
+        <mat-accordion>
+          <mat-expansion-panel class="panel-extensible-invisible" (opened)="cambiaEstadoPanel(true)"
+            [@.disabled]='!panelAbierto' (closed)="cambiaEstadoPanel(false)" [expanded]="panelAbierto" role="region">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h6 class="titulo-panel-invisible">{{textoConfirmacion.DEBITO}}{{numeroCuenta?.numero}}</h6>
+              </mat-panel-title>
+              <h6 class="valor-panel-invisible" id="montoPesos">-{{detalleInversion.moneda.simbolo}}
+                {{detalleInversion.monto | numeroDecimal}}</h6>
+              <mat-divider role="separator"></mat-divider>
+            </mat-expansion-panel-header>
+            <mat-divider role="separator" class="divider"></mat-divider>
+            <div class="detalle-panel">
+              <p class="detalle-descripcion">{{textoConfirmacion.DERECHOS_MERCADO}}</p>
+              <p class="precio-detalle-descripcion">-{{detalleDerechosMercado.moneda.simbolo}}
+                {{detalleDerechosMercado.monto | numeroDecimal}}</p>
+            </div>
+            <div class="detalle-panel">
+              <p class="detalle-descripcion">{{textoConfirmacion.COMISION}}</p>
+              <p class="precio-detalle-descripcion">-{{detalleComisionCompra.moneda.simbolo}}
+                {{detalleComisionCompra.monto | numeroDecimal}}</p>
+            </div>
+            <div class="detalle-panel">
+              <p class="detalle-descripcion">{{textoConfirmacion.PESOS}}</p>
+              <p class="precio-detalle-descripcion">-{{detallePesosEstimado.moneda.simbolo}}
+                {{detallePesosEstimado.monto | numeroDecimal}}</p>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </li>
+      <li class="detalle-dato">
+        <mat-accordion>
+          <mat-expansion-panel class="panel-extensible" (opened)="panelAbierto = true" (closed)="panelAbierto = false"
+            [disabled]="true" [expanded]="false" role="region" aria-expanded="false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h6 class="titulo-panel">{{textoConfirmacion.DOLARES_SOLICITADOS}}
+                  <mat-icon id="tooltipDolares" svgIcon="icon-tooltip" class="tooltip-icon" tabindex="0"
+                    aria-hidden="false" [attr.aria-label]="textoConfirmacion.TOOLTIP"
+                    [matTooltip]="textoConfirmacion.TOOLTIP">
+                  </mat-icon>
+                </h6>
+              </mat-panel-title>
+              <h6 class="valor-panel">u$s {{dolaresAComprar | numeroDecimal}}</h6>
+            </mat-expansion-panel-header>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </li>
+      <li class="detalle-dato">
+        <mat-accordion>
+          <mat-expansion-panel class="panel-extensible-invisible" [disabled]="true" [expanded]="true" role="region"
+            aria-expanded="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h6 class="titulo-panel-invisible">{{textoConfirmacion.MODALIDAD}}</h6>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-divider role="separator" class="divider"></mat-divider>
+            <div class="detalle-panel">
+              <p id="modalidad" class="detalle-descripcion">{{textoConfirmacion.INFO_MODALIDAD}}</p>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </li>
+    </ul>
+  </div>
+  <div class="zigzag"></div>
+  <p class="terminos-condiciones" id="textoAclaracion">{{textoConfirmacion.ACLARACION}}
+    {{textoConfirmacion.ACLARACION_INICIO}}
+    <a class="terminos-condiciones__link" id="requisitosOperacion"
+      (click)="abrirModal()" tabindex="0" (keypress)="abrirModal()">{{textoConfirmacion.REQUISITOS_LINK}}</a>
+    {{textoConfirmacion.ACLARACION_FINAL}}
+  </p>
+</div>

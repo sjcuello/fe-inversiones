@@ -1,0 +1,73 @@
+<div class="dolar-mep">
+  <div class="dolar-mep__disclaimer">
+    <p>
+      <em class="icon icon-lampara-prendida"></em>
+      <strong>{{ textosHomeDolarMep.DISCLAIMER.TEXTO_PRINCIPAL }}</strong>
+      {{ textosHomeDolarMep.DISCLAIMER.TEXTO_SECUNDARIO }}
+    </p>
+  </div>
+  <div class="cotizacion">
+    <p *ngIf="!tieneErrorCotizaciones" class="cotizacion__titulo">{{ textosHomeDolarMep.COTIZACION.TEXTO_PRINCIPAL }}
+      <mat-icon id="tooltip-cotizacion" svgIcon="icon-tooltip" class="cotizacion__tooltip" tabindex="0"
+        aria-hidden="false" [attr.aria-label]="textosHomeDolarMep.COTIZACION.TOOLTIP"
+        [matTooltip]="textosHomeDolarMep.COTIZACION.TOOLTIP">
+      </mat-icon>
+    </p>
+    <ftya-spinner *ngIf="estaCargandoCotizaciones; else elseBlock" size="24"></ftya-spinner>
+    <ng-template #elseBlock>
+      <p class="cotizacion__dolar" *ngIf="!!precioCompraDolarMep">u$s 1  <strong class="cotizacion__valor">= $ {{
+          precioCompraDolarMep | numeroDecimal }}</strong>
+      </p>
+      <p class="cotizacion__no-disponible"><span *ngIf="tieneErrorCotizaciones">{{
+          textosHomeDolarMep.COTIZACION.ERROR}}</span>
+      </p>
+    </ng-template>
+
+  </div>
+  <mat-tab-group class="dolar-mep__tabs">
+    <mat-tab [label]="textosHomeDolarMep.TABS.PRIMERA">
+      <div class="dolar-mep__ordenes-activas">
+        <div class="contenedor-iconos">
+          <div class="icon icon-pesos" aria-label="Ícono de moneda pesos" role="img"></div>
+          <div class="linea"></div>
+          <div class="linea-punteada"></div>
+          <div class="icon icon-clock" aria-label="Ícono de reloj" role="img"></div>
+          <div class="linea-punteada"></div>
+          <div class="linea"></div>
+          <div class="icon icon-dolars" aria-label="Ícono de moneda dólares" role="img"></div>
+        </div>
+        <div class="dolar-mep__pasos" *ngIf="consultaTenencia; else elseTenencia">
+          <ftya-card-dashboard [textoTitulo]="textosHomeDolarMep.PASOS.PRIMERO.TITULO"
+            [textoInfo]="textosHomeDolarMep.PASOS.PRIMERO.INFO"
+            [textoTooltip]="textosHomeDolarMep.PASOS.PRIMERO.TOOLTIP"
+            [textoBoton]="textosHomeDolarMep.PASOS.PRIMERO.BOTON" [nroPaso]="textosHomeDolarMep.PASOS.PRIMERO.PASO"
+            (accionBoton)="navegarCompra()"></ftya-card-dashboard>
+          <ftya-card-dashboard [textoTitulo]="textosHomeDolarMep.PASOS.SEGUNDO.TITULO" [textoInfo]="textoInfoParking"
+            [textoTooltipTitulo]="tooltipEspera" [textoTooltip]="tooltipParking"
+            [textoVacio]="textosHomeDolarMep.PASOS.SEGUNDO.NO_PARKING" [tenencia]="tenencia"
+            [nroPaso]="textosHomeDolarMep.PASOS.SEGUNDO.PASO" (accionIcono)="getTenenciasDolarMep()"
+            [tieneCotizacion]="!tieneErrorCotizaciones">
+          </ftya-card-dashboard>
+          <ftya-card-dashboard [textoTitulo]="textosHomeDolarMep.PASOS.TERCERO.TITULO"
+            [textoInfo]="textosHomeDolarMep.PASOS.TERCERO.INFO"
+            [textoVacio]="textosHomeDolarMep.PASOS.TERCERO.NO_ACREDITADO" [tenencia]="tenencia"
+            [ventaEfectuada]="ventaEfectuada" [textoBoton]="textosHomeDolarMep.PASOS.TERCERO.BOTON"
+            [nroPaso]="textosHomeDolarMep.PASOS.TERCERO.PASO" (accionBoton)="navegarVenta()">
+          </ftya-card-dashboard>
+        </div>
+        <ng-template #elseTenencia>
+          <ftya-spinner class="spinner-tenencia" size="48"></ftya-spinner>
+        </ng-template>
+        <p class="dolar-mep__aclaracion">{{ textosHomeDolarMep.ACLARACION }}</p>
+        <div class="contenedor-ttcc">
+          <img src="assets/images/invertir-online-nuevo.svg" alt="Invertir online">
+          <mat-icon svgIcon="separator" class="separador"></mat-icon>
+          <p class="dolar-mep__operaciones">{{ textosHomeDolarMep.OPERACIONES }} </p>
+          <p id="descarga" (aria-label)="textosHomeDolarMep.TTCC" class="dolar-mep__ttcc" (click)="downloadPdf()"
+            tabindex="0" (keydown)="downloadPdf()">{{ textosHomeDolarMep.TTCC }}</p>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab [label]="textosHomeDolarMep.TABS.SEGUNDA" [disabled]=true></mat-tab>
+  </mat-tab-group>
+</div>

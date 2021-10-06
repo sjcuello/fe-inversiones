@@ -1,0 +1,18 @@
+<div class="seleccion-importe">
+  <form [formGroup]="formMonto">
+    <mat-form-field class="mat-form-field-ingreso-monto" appearance="outline" floatLabel="always"
+      [className]="this.formMonto.valid ? 'valid' : 'invalid'">
+      <mat-label>{{ textosInput.LABEL }}</mat-label>
+      <input class="inputMonto" matInput placeholder="$ 0,00" name="monto" type="text" inputmode="numeric"
+        autocomplete="off" formControlName="monto" (focus)="retirarSimboloYPuntos()" (keyup)="formatearConDecimales()"
+        (keyup)="muestraErrores()"
+        (blur)="agregarSimboloYPuntos()" />
+    </mat-form-field>
+    <div mat-hint *ngIf="muestraMensaje" class="mensaje">
+      <div><span *ngIf="!this.formMonto.valid && getValor > montoMaximo">{{ textosInput.ERROR_MAXIMO }}
+          {{montoMaximo | numeroDecimal }}</span></div>
+      <div><span *ngIf="!this.formMonto.valid && getValor < montoMinimo">{{ textosInput.ERROR_MINIMO }}
+          {{montoMinimo | numeroDecimal }}</span></div>
+    </div>
+  </form>
+</div>

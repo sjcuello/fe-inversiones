@@ -1,0 +1,170 @@
+<!-- Caso de detalle vacio -->
+<ng-template #cardVacio>
+  <mat-card class="card-vacia">
+    <h1 class="card-vacia-titulo">{{ textoVacio }}</h1>
+  </mat-card>
+</ng-template>
+
+<!-- Caso de tener un unico boton -->
+<ng-template #cardBoton>
+  <mat-card class="card-unico">
+    <ftya-boton class="card-unico__boton-unico" [textoBoton]="textoBoton" (accionBoton)="clickBoton()"></ftya-boton>
+  </mat-card>
+</ng-template>
+
+<!-- Caso de no tener tenencia -->
+<ng-template #cardSinTenencia>
+  <mat-card class="card-unico" *ngIf="!recargaTenencia">
+    <h1 class="card-unico-titulo">{{textosCard.SEGUNDO.SIN_TENENCIA}}</h1>
+    <mat-icon svgIcon="icon-restart" class="icon-restart" (click)="clickIcono()"></mat-icon>
+  </mat-card>
+  <ftya-spinner *ngIf="recargaTenencia" size="50"></ftya-spinner>
+</ng-template>
+
+<!-- Caso de tener tenencia parking-->
+<ng-template #cardTenenciaParking>
+  <mat-card class="card-container">
+    <mat-card class="card-container-child">
+      <mat-card-content>
+        <div class="row">
+          <div class="col-lg-4 col-md-5">
+            <img style="margin-top: 8px;height: 50px;" src="assets/images/bono-AL30.svg" alt="Logo Bono">
+          </div>
+          <div class="col-lg-8 col-md-7">
+            <p class="titulo-seccion" style="margin-top: 8px;">{{textosCard.SEGUNDO.NOMINALES}}</p>
+            <p class="cantidad-unidades">{{cantidadParking | numeroSinDecimal }}</p>
+            <p class="dolares" *ngIf="tieneCotizacion">
+              {{simboloParking}} {{valorEstimadoParking | numeroDecimal}} {{textosCard.SEGUNDO.ESTIMADOS}}
+              <mat-icon id="tooltip-tenencia-parking" svgIcon="icon-tooltip" class="card-encabezado__tooltip-icon"
+                tabindex="0" aria-hidden="false" [attr.aria-label]="textosCard.SEGUNDO.TOOLTIP_ESTIMADOS"
+                [matTooltip]="textosCard.SEGUNDO.TOOLTIP_ESTIMADOS">
+              </mat-icon>
+            </p>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-footer class="footer">
+        <p class="texto-parking">{{textosCard.SEGUNDO.PARKING}}</p>
+      </mat-card-footer>
+    </mat-card>
+  </mat-card>
+</ng-template>
+
+<!-- Caso de tener tenencia nominales-->
+<ng-template #cardTenenciaNominales>
+  <mat-card class="card-container">
+    <mat-card class="card-container-child contorno">
+      <mat-card-content>
+        <div class="venta-container">
+          <div class="contenido-triple">
+            <div class="seccion-izq">
+              <p class="titulo-seccion">{{textosCard.TERCERO.NOMINALES}}</p>
+              <p class="cantidad-nominales">{{cantidadDisponible | numeroSinDecimal }}</p>
+            </div>
+            <div class="seccion-central">
+              <img class="imagen-seccion" src="assets/images/flecha-dolares.svg" alt="Flecha Dolar">
+            </div>
+            <div class="seccion-der">
+              <p class="titulo-seccion-dolares">{{textosCard.TERCERO.DOLARES}}
+                <mat-icon id="tooltip-tenencia-nominales" svgIcon="icon-tooltip" class="card-encabezado__tooltip-icon"
+                  tabindex="0" aria-hidden="false" [attr.aria-label]="textosCard.TERCERO.TOOLTIP"
+                  [matTooltip]="textosCard.TERCERO.TOOLTIP">
+                </mat-icon>
+              </p>
+
+              <p class="cantidad-dolares-estimado">{{simboloDisponible}} {{valorEstimadoDisponible | numeroDecimal }}
+              </p>
+            </div>
+          </div>
+          <div class="accion-nominales" style="margin-top: 20px;">
+            <ftya-boton class="boton-venta" [tipoBoton]="'link'" [textoBoton]="textosCard.TERCERO.BOTON"
+              (accionBoton)="clickBoton()"></ftya-boton>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-card>
+</ng-template>
+
+<!-- Caso de mensaje de venta efectuada-->
+<ng-template #cardSolicitudVenta>
+  <mat-card class="card-container">
+    <mat-card class="card-container-child contorno solicitud-venta">
+      <mat-card-content class="solicitud-venta-content">
+        <img src="assets/images/check-venta-bonos.svg" alt="Check venta">
+        <p class="titulo-solicitud-venta">{{textosCard.TERCERO.SOLICITUD_VENTA_TITULO}}</p>
+        <p class="subtitulo-solicitud-venta">{{textosCard.TERCERO.SOLICITUD_VENTA_SUBTITULO}}
+          <span>{{textosCard.TERCERO.TU_CUENTA}}</span>
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </mat-card>
+</ng-template>
+
+<!-- Caso de manejo de la espera -->
+<ng-template #cardEspera>
+  <ng-container *ngIf="tenencia; else elseBlock">
+    <ng-container *ngIf="cantidadParking > 0; else vacioBlock" [ngTemplateOutlet]="cardTenenciaParking">
+    </ng-container>
+    <ng-template #vacioBlock>
+      <ng-container [ngTemplateOutlet]="cardVacio"></ng-container>
+    </ng-template>
+  </ng-container>
+  <ng-template #elseBlock>
+    <ng-container [ngTemplateOutlet]="cardSinTenencia"></ng-container>
+  </ng-template>
+</ng-template>
+
+<!-- Caso de manejo de la tenencia de dolares y nominales para vender  -->
+<ng-template #cardAcreditar>
+  <ftya-spinner *ngIf="!cargaDatos" size="24"></ftya-spinner>
+  <ng-container *ngIf="ventaEfectuada; else elseBlockVenta" [ngTemplateOutlet]="cardSolicitudVenta"></ng-container>
+  <ng-template #elseBlockVenta>
+    <ng-container *ngIf="tenencia; else elseBlockTenencia">
+      <ng-container *ngIf="cantidadDisponible > 0 && !ventaEfectuada; else vacioBlock"
+        [ngTemplateOutlet]="cardTenenciaNominales">
+      </ng-container>
+      <ng-template #vacioBlock>
+        <ng-container [ngTemplateOutlet]="cardVacio"></ng-container>
+      </ng-template>
+    </ng-container>
+    <ng-template #elseBlockTenencia>
+      <ng-container [ngTemplateOutlet]="cardVacio"></ng-container>
+    </ng-template>
+  </ng-template>
+</ng-template>
+
+<!-- Parte superior de cada Card -->
+<ng-template #cardEncabezado>
+  <mat-card class="card-encabezado">
+    <h1 class="card-encabezado-titulo">
+      {{ textoTitulo }}
+      <mat-icon *ngIf="textoTooltipTitulo" id="tooltip-tenencia" svgIcon="icon-tooltip"
+        class="card-encabezado__tooltip-icon" tabindex="0" aria-hidden="false" [attr.aria-label]="textoTooltipTitulo"
+        [matTooltip]="textoTooltipTitulo">
+      </mat-icon>
+    </h1>
+    <p class="card-encabezado-info">
+      {{ textoInfo }}
+      <mat-icon *ngIf="textoTooltip" svgIcon="icon-tooltip" class="card-encabezado__tooltip-icon" tabindex="0"
+        aria-hidden="false" [attr.aria-label]="textoTooltip" [matTooltip]="textoTooltip">
+      </mat-icon>
+    </p>
+  </mat-card>
+</ng-template>
+
+<!-- Parte inferior de cada Card -->
+<ng-template #cardPie>
+  <ng-container [ngSwitch]="nroPaso">
+    <ng-container *ngSwitchCase=1 [ngTemplateOutlet]="cardBoton"></ng-container>
+    <ng-container *ngSwitchCase=2 [ngTemplateOutlet]="cardEspera"></ng-container>
+    <ng-container *ngSwitchCase=3 [ngTemplateOutlet]="cardAcreditar"></ng-container>
+    <ng-container *ngSwitchDefault [ngTemplateOutlet]="cardVacio"></ng-container>
+  </ng-container>
+</ng-template>
+
+<!-- Estructura basica de cada Card -->
+<mat-card class="card">
+  <ng-container [ngTemplateOutlet]="cardEncabezado"></ng-container>
+  <ng-container [ngTemplateOutlet]="cardPie"></ng-container>
+</mat-card>

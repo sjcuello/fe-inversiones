@@ -1,0 +1,39 @@
+{
+  "cantidad_nominales_disponibles": 1550,
+  "porcentaje_comision_venta": 0.5,
+  "porcentaje_derechos_mercado": 0.01,
+  "estimados": {
+    "venta": {
+      "moneda": {
+        "codigo": 2,
+        "simbolo": "u$s",
+        "descripcion": "Dólares"
+      },
+      "monto": 13998.43
+    },
+    "comision_venta": {
+      "moneda": {
+        "codigo": 2,
+        "simbolo": "u$s",
+        "descripcion": "Dólares"
+      },
+      "monto": 69.992
+    },
+    "credito": {
+      "moneda": {
+        "codigo": 2,
+        "simbolo": "u$s",
+        "descripcion": "Dólares"
+      },
+      "monto": 13928.438
+    },
+    "derechos_mercado": {
+      "moneda": {
+        "codigo": 80,
+        "simbolo": "$",
+        "descripcion": "Pesos"
+      },
+      "monto": 147.305479
+    }
+  }
+}

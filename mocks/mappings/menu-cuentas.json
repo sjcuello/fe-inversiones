@@ -1,0 +1,14 @@
+{
+    "request": {
+        "url": "/obi/cuentas/api/habilitaciones/InternaCuentas",
+        "method": "GET"
+    },
+    "response": {
+        "status": 200,
+        "jsonBody": { "esta_habilitado": "true" },
+        "fixedDelayMilliseconds": 1500,
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/obi/inversiones/api/v1.0/dolar-mep/detalle_venta"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "detalle-ventas.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/obi/inversiones/api/v1.0/dolar-mep/compras"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "compras.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<ng-container *ngIf="selected">
+    <ul class="step-tracker">
+        <ng-container *ngFor="let step of steps;let i = index;">
+            <li class="step-tracker__item" [attr.data-step-index]="i">
+                <button role="link" class="btn-link step-tracker__link" [class.active]="selectedIndex >= i"
+                    [disabled]="selectedIndex !== i && !step.completed" style="width: 100%;">
+                </button>
+                <div class="content">
+                    <ng-container *ngIf="step.stepLabel; else showLabelText"
+                        [ngTemplateOutlet]="step.stepLabel.template">
+                    </ng-container>
+                    <ng-template #showLabelText>
+                        {{ step.label }}
+                    </ng-template>
+                </div>
+            </li>
+        </ng-container>
+    </ul>
+    <ng-container [ngTemplateOutlet]="selected.content"></ng-container>
+</ng-container>

@@ -1,0 +1,285 @@
+@import "~src/assets/variables";
+@import "~src/assets/colors";
+
+.titulo {
+    font-family: "Whitney", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 34px;
+    line-height: 39px;
+    text-align: left;
+    color: $base-negro;
+    margin-left: 6%;
+}
+
+.content-card {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    height: 380px;
+    background: $blanco;
+    border: 1px solid $gris-blanco;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    flex: none;
+    order: 0;
+    margin: 0px 12px;
+    &:hover {
+        background: $blanco;
+        border: 1px solid $gris-blanco;
+        box-sizing: border-box;
+        box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.3);
+        border-radius: 4px;
+    }
+}
+
+.pie-card {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    grid-auto-flow: column;
+    margin-top: 5%;
+}
+
+.pie-texto {
+    color: $gris-calido;
+    font-family: "Heebo", sans-serif;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 10px;
+    letter-spacing: 0.3px;
+    text-align: center;
+}
+
+@media (max-width: map_get($grid-breakpoints, "xl")) {
+    .card {
+        margin: 0% 5%;
+    }
+}
+
+@media (max-height: map_get($grid-breakpoints, "md")) and (min-height: map_get($grid-breakpoints, "sm")) {
+    .card {
+        height: 300px;
+        width: 300px;
+    }
+}
+
+.content-titulo {
+    text-align: center;
+    margin: 10px 0px;
+}
+
+.content-titulo-fci {
+    text-align: center;
+    margin: 10px 10px;
+}
+
+@media (max-height: map_get($grid-breakpoints, "md")) and (min-height: map_get($grid-breakpoints, "sm")) {
+    .content-titulo {
+        margin-top: 0px 0px;
+    }
+}
+
+@media (max-width: map_get($grid-breakpoints, "sm")) {
+    .content-titulo-fci {
+        margin: -50px 0px 0px 50px;
+        left: 64px;
+        top: 16.5px;
+        text-align: left;
+        max-width: 170px;
+    }
+}
+
+@media (max-height: map_get($grid-breakpoints, "md")) and (min-height: map_get($grid-breakpoints, "sm")) {
+    .content-titulo-fci {
+        margin-top: 5px 0px;
+    }
+}
+
+.titulo-card {
+    font-family: "Whitney", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 30px;
+    color: $base-negro;
+    text-align: center;
+    justify-content: center;
+}
+
+@media (max-height: map_get($grid-breakpoints, "md")) and (min-height: map_get($grid-breakpoints, "sm")) {
+    .titulo-card {
+        font-size: 20px;
+    }
+}
+
+.box-titulo-fci {
+    position: static;
+    height: 30px;
+    left: 24px;
+    top: 104px;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    margin: 24px 0px 48px 0px;
+    text-align: center;
+}
+
+.parrafo-card {
+    font-family: "Heebo", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 23px;
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+    color: $gris-mate;
+    &-especial{
+        color: $gris-mate;
+        font-weight: bolder;
+        font-size: 20px;
+    }
+}
+
+.box-parrafo {
+    height: 72px;
+    left: 24px;
+    top: 158px;
+    flex: none;
+    order: 2;
+    align-self: stretch;
+    margin: 24px 0px;
+    padding: 0px 20px;
+    text-align: center;
+}
+
+#logo-invertir-online {
+    display: none;
+}
+
+@media (max-height: map_get($grid-breakpoints, "md")) and (min-height: map_get($grid-breakpoints, "sm")) {
+    .box-parrafo {
+        margin: 0px 0px;
+    }
+}
+
+@media (max-height: map_get($grid-breakpoints, "md")) and (min-height: map_get($grid-breakpoints, "sm")) {
+    .parrafo-card {
+        font-size: 14px;
+        line-height: 23px;
+    }
+}
+
+.footer-box-mep {
+    height: 10px;
+    left: 55px;
+    top: 264.5px;
+    justify-content: center;
+    text-align: center;
+}
+
+.footer-texto-mep {
+    font-family: "Heebo", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 10px;
+    text-align: center;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    color: $gris-calido;
+}
+
+.image-mep {
+    width: 141px;
+    height: 31px;
+    left: 148px;
+    top: 254px;
+    background-image: url("invertir-online.png");
+}
+
+.icon {
+    width: 48px;
+    height: 48px;
+    margin: 1.5%;
+}
+
+.content-icon {
+    text-align: center;
+    margin-top: 60px;
+}
+
+@media (max-height: map_get($grid-breakpoints, "md")) and (min-height: map_get($grid-breakpoints, "sm")) {
+    .content-icon {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: map_get($grid-breakpoints, "sm")) {
+    .content-titulo {
+        margin: -40px 0px 0px 50px;
+        left: 64px;
+        top: 16.5px;
+        text-align: left;
+    }
+}
+
+@media (max-width: map_get($grid-breakpoints, "sm")) {
+    .content-icon {
+        text-align: left;
+        margin-top: 2px;
+    }
+}
+
+@media (max-width: map_get($grid-breakpoints, "sm")) {
+    .icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: map_get($grid-breakpoints, "sm")) {
+    .card {
+        height: 56px;
+    }
+    .pie-card {
+        display: none;
+    }
+    #logo-invertir-online {
+        display: inline;
+        margin: 0px 0px 5px 5px;
+    }
+}
+
+@media (max-width: map_get($grid-breakpoints, "sm")) {
+    .box-parrafo {
+        display: none;
+    }
+}
+
+@media (max-width: map_get($grid-breakpoints, "sm")) {
+    .titulo-card {
+        font-size: 20px;
+        line-height: 23px;
+    }
+}
+
+@media (max-width: 320px) {
+    .titulo-card {
+        font-size: 14px;
+        line-height: 23px;
+    }
+}
+
+@media (max-width: 280px) {
+    .card {
+        width: 230px;
+    }
+}

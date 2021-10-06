@@ -1,0 +1,94 @@
+<div class="detalle">
+  <div class="detalle-contenedor">
+    <span class="detalle-titulo">
+      {{ textoConfirmacion.RECORDATORIO }}
+    </span>
+    <ul class="detalle-datos">
+      <li class="detalle-dato">
+        <mat-accordion>
+          <mat-expansion-panel class="panel-extensible" (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h6 class="titulo-panel">{{textoConfirmacion.DOLARES_ACREDITAR}}{{numeroCuentaDolares?.numero}}</h6>
+              </mat-panel-title>
+              <h6 class="valor-panel">{{venta.moneda.simbolo}} {{venta.monto | number:'1.1-3'}}</h6>
+              <mat-divider></mat-divider>
+            </mat-expansion-panel-header>
+            <mat-divider class="divider"></mat-divider>
+            <div class="detalle-panel">
+              <p class="detalle-descripcion">{{textoConfirmacion.ESTIMADO}}</p>
+              <p class="precio-detalle-descripcion">{{credito.moneda.simbolo}} {{credito.monto | number:'1.1-3'}}</p>
+            </div>
+            <div class="detalle-panel">
+              <p class="detalle-descripcion">{{textoConfirmacion.COMISION}}</p>
+              <p class="precio-detalle-descripcion">{{comisionVenta.moneda.simbolo}} {{comisionVenta.monto |
+                number:'1.1-3'}}</p>
+            </div>
+
+          </mat-expansion-panel>
+        </mat-accordion>
+      </li>
+
+      <li class="detalle-dato">
+        <mat-accordion>
+          <mat-expansion-panel class="panel-extensible-invisible" (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h6 class="titulo-panel-invisible">{{textoConfirmacion.PESOS_DEBITAR}}{{numeroCuentaPesos?.numero}}
+                </h6>
+                <mat-icon svgIcon="icon-tooltip" class="tooltip-icon" tabindex="0" aria-hidden="false"
+                  [attr.aria-label]="textoConfirmacion.TOOLTIP" [matTooltip]="textoConfirmacion.TOOLTIP">
+                </mat-icon>
+              </mat-panel-title>
+              <h6 class="valor-panel-invisible">-{{derechosMercado.moneda.simbolo}} {{derechosMercado.monto |
+                number:'1.1-3'}}</h6>
+            </mat-expansion-panel-header>
+            <mat-divider class="divider"></mat-divider>
+            <div class="detalle-panel">
+              <p class="detalle-descripcion">{{textoConfirmacion.INFO_PESOS}}</p>
+              <p class="precio-detalle-descripcion">-{{derechosMercado.moneda.simbolo}} {{derechosMercado.monto |
+                number:'1.1-3'}}</p>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </li>
+      <li class="detalle-dato">
+        <mat-accordion>
+          <mat-expansion-panel class="panel-extensible-invisible" [disabled]="true" [expanded]="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="titulo-panel-invisible">
+                {{textoConfirmacion.MODALIDAD}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-divider class="divider"></mat-divider>
+            <div class="detalle-panel">
+              <p class="detalle-descripcion">{{textoConfirmacion.INFO_MODALIDAD}}</p>
+              <p class="precio-detalle-descripcion"></p>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </li>
+    </ul>
+  </div>
+  <div class="zigzag"></div>
+  <div class="formulario">
+    <form [formGroup]="form">
+      <div class="field">
+        <div class="control" controlErrorContainer>
+          <input id="checkbox" type="checkbox" formControlName="terms" [checked]="tildado" (change)="tildaCheckbox()">
+          <span class="terminos-condiciones">
+            <div class="texto-terminos">
+              {{textoConfirmacion.INFO_CHECKBOX_INICIO}}
+              <a class="terminos-condiciones__link" id="requisitosNecesarios"
+                (click)="abrirModal()" tabindex="0" (keypress)="abrirModal()">{{textoConfirmacion.TEXTO_LINK_CHECKBOX}}</a>
+              {{textoConfirmacion.INFO_CHECKBOX_FIN}}
+            </div>
+          </span>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>

@@ -1,0 +1,52 @@
+<div class="notificacion-nueva-ventana">
+  <h1 class="notificacion-nueva-ventana__titulo">{{title}}</h1>
+
+  <mat-icon class="notificacion-nueva-ventana__imagen-header" svgIcon="face-new-window"></mat-icon>
+
+  <h3 class="notificacion-nueva-ventana__subtitulo">Se abrió una ventana nueva</h3>
+
+  <p class="notificacion-nueva-ventana__parrafo">Si no lograste visualizarla, es probable que tengas habilitado el bloqueador de elementos emergentes.</p>
+
+  <div class="instrucciones-popup">
+    <h4 class="instrucciones-popup__titulo">¿Cómo deshabilitarlo?</h4>
+
+    <p class="instrucciones-popup__parrafo">
+      Copiá el link de ayuda según el navegador que tengas y pegalo en una ventana nueva.
+    </p>
+
+    <div class="instrucciones-popup__botonera">
+      <button
+        class="btn-link btn-copiar-instrucciones"
+        [cdkCopyToClipboard]="'https://support.google.com/chrome/answer/95472?hl=es-419'"
+      >
+        <mat-icon class="btn-copiar-instrucciones__icono" svgIcon="chrome"></mat-icon>
+        <span class="btn-copiar-instrucciones__label">
+          <span class="btn-copiar-instrucciones__navegador">Chrome</span>
+          <span class="btn-copiar-instrucciones__accion">Copiar link</span>
+        </span>
+      </button>
+
+      <button
+        class="btn-link btn-copiar-instrucciones"
+        [cdkCopyToClipboard]="'http://support2.microsoft.com/kb/909604/es'"
+      >
+        <mat-icon class="btn-copiar-instrucciones__icono" svgIcon="explorer"></mat-icon>
+        <span class="btn-copiar-instrucciones__label">
+          <span class="btn-copiar-instrucciones__navegador">Explorer</span>
+          <span class="btn-copiar-instrucciones__accion">Copiar link</span>
+        </span>
+      </button>
+
+      <button
+        class="btn-link btn-copiar-instrucciones"
+        [cdkCopyToClipboard]="'https://support.apple.com/es-co/HT203987'"
+      >
+        <mat-icon class="btn-copiar-instrucciones__icono" svgIcon="safari"></mat-icon>
+        <span class="btn-copiar-instrucciones__label">
+          <span class="btn-copiar-instrucciones__navegador">Safari</span>
+          <span class="btn-copiar-instrucciones__accion">Copiar link</span>
+        </span>
+      </button>
+    </div>
+  </div>
+</div>

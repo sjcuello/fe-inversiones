@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>[00299] Banco Comafi</title>
+    <defs>
+        <linearGradient x1="0%" y1="50%" x2="99.9973397%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#AAB67C" offset="0%"></stop>
+            <stop stop-color="#AAB67C" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="50%" x2="100.019958%" y2="50%" id="linearGradient-2">
+            <stop stop-color="#AAB67C" offset="0%"></stop>
+            <stop stop-color="#AAB67C" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="[00299]-Banco-Comafi" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Asset-1" transform="translate(6.000000, 4.000000)" fill-rule="nonzero">
+            <circle id="Oval" fill="#7F943A" cx="14.1939" cy="16.33338" r="14.1939"></circle>
+            <path d="M13.50972,0 L13.50972,16.1406 L30.21354,16.1406 C30.21354,16.1406 31.12452,0.43092 13.50972,0 Z" id="Path" fill="url(#linearGradient-1)"></path>
+            <path d="M30.33072,17.5203 C30.33072,17.5203 31.2417,33.2262 13.6269,33.6609 L13.6269,17.5203" id="Path" fill="url(#linearGradient-2)"></path>
+        </g>
+    </g>
+</svg>

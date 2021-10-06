@@ -1,0 +1,34 @@
+{
+    "/obi/api/*": {
+        "target": "http://localhost:9880",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    },
+    "/obi/inversiones/api/*": {
+        "target": "http://localhost:9880",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    },
+    "/obi/cuentas/api/*": {
+        "target": "http://localhost:9880",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    },
+    "/obi/tarjetas/api/*": {
+        "target": "http://localhost:9880",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    },
+    "/Pages/Token/Token.aspx": {
+        "target": "http://localhost:4200",
+        "secure": false,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/Pages/Token/Token.aspx$": "/obi/assets/jwt.txt"
+        }
+    }
+}

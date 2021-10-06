@@ -1,0 +1,28 @@
+<div
+  class="notification-drawer custom-scroll"
+  [class.notification-drawer--open]="isOpen"
+  shared-click-outside
+  (clickOutside)="closeNotificationDrawer()"
+>
+  <div id="notificacionesLeidas" class="notification-drawer-message" *ngIf="notificaciones?.length === 0">
+    <div class="notification-drawer-message__icon">
+      <mat-icon svgIcon="check-green"></mat-icon>
+    </div>
+    <h3 class="notification-drawer-message__title">Sin notificaciones</h3>
+    <p class="notification-drawer-message__description">No tenés nuevos mensajes sin leer.</p>
+  </div>
+
+  <ng-container *ngIf="notificaciones?.length">
+    <ng-container *ngFor="let notificacion of notificaciones">
+      <div class="notificacion" [class.notificacion--leida]="notificacion.leido">
+        <h4 class="notificacion__title">{{ notificacion.nombre }}</h4>
+        <p class="notificacion__description" [innerHTML]="notificacion.descripcion"></p>
+        <ng-container *ngIf="notificacion.link_call_to_action">
+          <div class="notificacion__call-to-action">
+            <a class="button--arrow" [href]="notificacion.link_call_to_action.href">{{ notificacion.link_call_to_action.descripcion }}</a>
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

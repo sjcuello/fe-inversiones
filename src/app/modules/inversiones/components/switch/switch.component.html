@@ -1,0 +1,5 @@
+<div class="toggle">
+	<input class="toggle-input" type="checkbox" />
+	<button class="toggle-btn {{nombreClase}}" [ngClass]="{'toggle-btn-on': encendido, 'toggle-btn-off': !encendido}"
+		[attr.aria-expanded]="encendido"> </button>
+</div>

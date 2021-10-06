@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/obi/inversiones/api/v1.0/catalogos/paises"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "paises.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "backendUrl": "http://localhost:4200/obi/api/",
+  "backendTarjetasUrl": "http://localhost:4200/obi/tarjetas/api/",
+  "backendCuentasUrl": "http://localhost:4200/obi/cuentas/api/",
+  "backendUrlInversiones": "http://localhost:4200/obi/inversiones/api/",
+  "backendUrlInversionesHome": "http://localhost:4200/obi/inversiones/api/",
+  "jwtProviderUrl": "http://localhost:4200/Pages/Token/Token.aspx",
+  "googleTagManagerId": "GTM-M265LBL",
+  "googleAnalyticsIds": ["UA-17782447-12"],
+  "idleSeconds": 3600,
+  "idleTimeoutSeconds": 20,
+  "mostrarAccesosDirectos": true,
+  "logoffUrl": "https://www.supervielle.com.ar/log-off",
+  "prestamosUrl": "http://localhost:8080/prestamos",
+  "cmsUrl": "https://content-us-8.content-cms.com/api/f8d92c5b-2ec6-46ee-8e22-cd2d9a556473/delivery/v1/rendering/context/9786591f-9d88-41ba-8e57-085e8f28fe6d",
+  "activateUrl": true
+}

@@ -1,0 +1,59 @@
+{
+    "mappings": [{
+            "request": {
+                "url": "/obi/tarjetas/api/habilitaciones/stop-debit",
+                "method": "GET"
+            },
+            "response": {
+                "status": 200,
+                "jsonBody": { "esta_habilitado": "true" },
+                "fixedDelayMilliseconds": 1500,
+                "headers": {
+                    "Content-Type": "application/json;charset=UTF-8"
+                }
+            }
+        },
+        {
+            "request": {
+                "url": "/obi/tarjetas/api/habilitaciones/pagos",
+                "method": "GET"
+            },
+            "response": {
+                "status": 200,
+                "jsonBody": { "esta_habilitado": "true" },
+                "fixedDelayMilliseconds": 1500,
+                "headers": {
+                    "Content-Type": "application/json;charset=UTF-8"
+                }
+            }
+        },
+        {
+            "request": {
+                "url": "/obi/tarjetas/api/habilitaciones/deliveries",
+                "method": "GET"
+            },
+            "response": {
+                "status": 200,
+                "jsonBody": { "esta_habilitado": "true" },
+                "fixedDelayMilliseconds": 1500,
+                "headers": {
+                    "Content-Type": "application/json;charset=UTF-8"
+                }
+            }
+        },
+        {
+            "request": {
+                "url": "/obi/tarjetas/api/habilitaciones/InternaTarjetas",
+                "method": "GET"
+            },
+            "response": {
+                "status": 200,
+                "jsonBody": { "esta_habilitado": "true" },
+                "fixedDelayMilliseconds": 1500,
+                "headers": {
+                    "Content-Type": "application/json;charset=UTF-8"
+                }
+            }
+        }
+    ]
+}

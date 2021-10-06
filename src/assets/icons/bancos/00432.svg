@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>[00432] Banco de Comercio</title>
+    <defs>
+        <linearGradient x1="100%" y1="50.0798467%" x2="0%" y2="50.0798467%" id="linearGradient-1">
+            <stop stop-color="#908CB3" offset="19%"></stop>
+            <stop stop-color="#262E65" offset="98%"></stop>
+        </linearGradient>
+        <linearGradient x1="49.9721448%" y1="100%" x2="49.9721448%" y2="0%" id="linearGradient-2">
+            <stop stop-color="#91BF3E" offset="1%"></stop>
+            <stop stop-color="#D7E4AB" offset="97%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="linearGradient-3">
+            <stop stop-color="#91BF3E" offset="1%"></stop>
+            <stop stop-color="#D7E4AB" offset="97%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="[00432]-Banco-de-Comercio" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Asset-5" transform="translate(5.000000, 11.000000)" fill-rule="nonzero">
+            <path d="M0,20.13 L22.7436,14.6718 L25.8225,9.7977 C25.8225,9.7977 17.4438,10.824 6.8409,15.8697 L0,20.13 Z" id="Path" fill="url(#linearGradient-1)"></path>
+            <polygon id="Path" fill="#262E65" points="25.8225 9.7977 22.7436 14.6718 27.3933 20.4039 29.7033 9.9132"></polygon>
+            <polygon id="Path" fill="url(#linearGradient-2)" points="25.8225 9.7977 31.746 0 29.7033 9.9132"></polygon>
+            <path d="M6.0522,16.3416 L31.746,0 L25.806,9.7977 C25.806,9.7977 14.6091,11.7183 6.0522,16.3416 Z" id="Path" fill="url(#linearGradient-3)"></path>
+            <path d="M11.6655,13.7808 C11.6655,13.7808 18.81,9.7977 25.9347,9.80099795 C21.0590425,10.655328 16.2795153,11.9883784 11.6655,13.7808 L11.6655,13.7808 Z" id="Path" fill="#C5DA88"></path>
+        </g>
+    </g>
+</svg>

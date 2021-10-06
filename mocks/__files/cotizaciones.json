@@ -1,0 +1,22 @@
+[
+  {
+    "volumen_nominal": 100,
+    "codigo_moneda": 80,
+    "puntas": [
+      {
+        "precio_compra": 5123,
+        "precio_venta": 5140
+      }
+    ]
+  },
+  {
+    "volumen_nominal": 100,
+    "codigo_moneda": 2,
+    "puntas": [
+      {
+        "precio_compra": 34.27,
+        "precio_venta": 35.35
+      }
+    ]
+  }
+]

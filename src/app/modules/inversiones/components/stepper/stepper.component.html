@@ -1,0 +1,17 @@
+<ng-container *ngIf="selected">
+  <ul class="step-tracker" [ngClass]="{ 'hide': ocultarStepper }">
+    <ng-container *ngFor="let step of steps;let i = index;">
+        <li class="step-tracker__item" [attr.data-step-index]="i">
+          <button
+            role="link"
+            class="btn-link step-tracker__link"
+            [class.active]="selectedIndex >= i"
+            [disabled]="selectedIndex !== i && !step.completed || deshabilitarStep"
+            (click)="selectStepIndex(i)">
+            <span class="sr-only">Ir al paso {{ i + 1 }}</span>
+          </button>
+        </li>
+    </ng-container>
+  </ul>
+  <ng-container [ngTemplateOutlet]="selected.content"></ng-container>
+</ng-container>

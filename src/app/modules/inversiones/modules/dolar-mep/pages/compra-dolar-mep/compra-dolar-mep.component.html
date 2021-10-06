@@ -1,0 +1,121 @@
+<div *ngIf="!estaCargandoCotizaciones" class="compra-dolar-mep">
+  <ftya-header [titulo]="titulo" [puedeVolver]="!compraExitosa" (accionVolver)="volverPasoAnterior()"></ftya-header>
+  <ng-template #tituloStepper>
+    <h1 class="compra-dolar-mep__titulo" [innerHTML]="tituloPaso"></h1>
+    <p *ngIf="!!precioCompraDolarMep">{{ textosCompraDolarMep.COTIZACION }} {{ precioCompraDolarMep | numeroDecimal }}
+    </p>
+  </ng-template>
+  <ng-template #iconosTemplate>
+    <div class="contenedor-iconos">
+      <div class="icono">
+        <div class="icon icon-pesos" aria-label="Ícono de moneda pesos" role="img"></div>
+        <span class="icono-texto paso-actual">{{ textosCompraDolarMep.PASOS.SOLICITA }}</span>
+      </div>
+      <div class="linea-punteada"></div>
+      <div class="icono">
+        <div class="icon icon-clock-grey" aria-label="Ícono de reloj" role="img"></div>
+        <span class="icono-texto">{{ textosCompraDolarMep.PASOS.ESPERA }}</span>
+      </div>
+      <div class="linea-punteada"></div>
+      <div class="icono">
+        <div class="icon icon-dolars-grey" aria-label="Ícono de moneda dólares" role="img"></div>
+        <span class="icono-texto">{{ textosCompraDolarMep.PASOS.ACREDITA }}</span>
+      </div>
+    </div>
+  </ng-template>
+
+  <ftya-stepper *ngIf="!mostrarErrorPantallaCompleta && !compraExitosa" #stepper [linear]="true"
+    [deshabilitarStep]="deshabilitarContinuar" [ocultarStepper]="true">
+    <cdk-step>
+      <ng-container [ngTemplateOutlet]="iconosTemplate"></ng-container>
+      <div class="compra-dolar-mep__contenedor">
+        <ng-container [ngTemplateOutlet]="tituloStepper"></ng-container>
+
+        <div *ngIf="!estaCargandoCuentas && !tieneErrorCuentas" class="compra-dolar-mep__formulario">
+          <ftya-cuentas-dropdown [cuentas]="cuentasEnPesos" class="compra-dolar-mep__dropdown"
+            [cuentaPredeterminada]="cuentaPredeterminada" [label]="textosCompraDolarMep.LABEL_DROPDOWN"
+            (accionSeleccionarCuenta)="seleccionarCuenta($event)">
+          </ftya-cuentas-dropdown>
+          <div *ngIf="deshabilitarContinuar" class="compra-dolar-mep__error">
+            <mat-icon svgIcon="icon-danger"></mat-icon>
+            <span>{{ textosCompraDolarMep.ERROR.CUENTA }} ${{ precioCompraDolarMep | numeroDecimal }}</span>
+          </div>
+          <ftya-boton [textoBoton]="textoBoton" (accionBoton)="irAlPasoSiguiente()"
+            class="compra-dolar-mep__boton-cuentas" [estaDeshabilitado]="deshabilitarContinuar">
+          </ftya-boton>
+        </div>
+        <div *ngIf="estaCargandoCuentas" class="compra-dolar-mep__cargando">
+          <shared-progress-bar class="shared-progress-bar"></shared-progress-bar>
+        </div>
+
+        <ftya-banner class="error-cuentas" *ngIf="!estaCargandoCuentas && tieneErrorCuentas"
+          [mensaje]="textosError.BANNER.CUENTAS"></ftya-banner>
+      </div>
+    </cdk-step>
+
+    <cdk-step>
+      <ng-container [ngTemplateOutlet]="iconosTemplate"></ng-container>
+      <div *ngIf="cuentaSeleccionada" class="compra-dolar-mep__contenedor">
+        <ng-container [ngTemplateOutlet]="tituloStepper"></ng-container>
+        <p>{{ cuentaSeleccionada.tipo_cuenta }} en {{ cuentaSeleccionada.moneda.descripcion }} {{
+          cuentaSeleccionada.numero }} <span>({{ cuentaSeleccionada.moneda.simbolo }} {{ cuentaSeleccionada.saldo |
+            numeroDecimal }})</span></p>
+
+        <div class="compra-dolar-mep__formulario">
+          <ftya-monto-input [resetearMonto]="resetearMonto" (accionMonto)="calcularDolares($event)"
+            [montoMaximo]="montoMaximo" [montoMinimo]="montoMinimo">
+          </ftya-monto-input>
+
+          <div class="compra-dolar-mep__cantidades">
+            <p class="compra-dolar-mep__cantidades-dolares">{{ textosCompraDolarMep.CANTIDAD_DOLARES }} <span>u$s {{
+                dolaresAComprar | numeroDecimal }}</span></p>
+          </div>
+
+          <p class="compra-dolar-mep__recordatorio"><em class="icon icon-lampara-prendida"></em>{{
+            textosCompraDolarMep.RECORDATORIO }}</p>
+
+          <ftya-boton [textoBoton]="textoBoton" (accionBoton)="getDetalleCompra()" class="compra-dolar-mep__boton"
+            [estaDeshabilitado]="deshabilitarContinuar" [cargando]="estaCargandoDetalle">
+          </ftya-boton>
+        </div>
+      </div>
+    </cdk-step>
+
+    <cdk-step>
+      <ng-container [ngTemplateOutlet]="iconosTemplate"></ng-container>
+      <h1 class="compra-dolar-mep__titulo"> {{ textosCompraDolarMep.TERCER_PASO }}</h1>
+      <div *ngIf="condicionDetalleCompra" class="compra-dolar-mep__formulario">
+        <ftya-detalle-solicitud [textoConfirmacion]="textosDetalleConfirmacion" [numeroCuenta]="cuentaSeleccionada"
+          [panelAbierto]="estadoPanel"
+          (estadoActualPanel)="cambiaEstadoPanel($event)" [detalleCompra]="detalleCompra"
+          [dolaresAComprar]="dolaresAComprar" (cerroModal)="confirmacionModal($event)"> 
+        </ftya-detalle-solicitud>
+
+        <div class="compra-dolar-mep__confirmacion">
+          <ftya-boton id="confirmacionDetalle" [textoBoton]="textoConfirmar" (accionBoton)="postCompraDolarMep()"
+            [cargando]="estaCargandoCompras">
+          </ftya-boton>
+          <ftya-boton id="cancelacionDetalle" tipoBoton="link" [textoBoton]="textoCancelar" (accionBoton)="cerrar()">
+          </ftya-boton>
+        </div>
+      </div>
+    </cdk-step>
+  </ftya-stepper>
+
+  <ftya-error *ngIf="mostrarErrorPantallaCompleta" [titulo]="textosError.TITULO_GENERICO" [subtitulo]="subtituloError"
+    (accionBoton)="cerrar()">
+  </ftya-error>
+
+  <ftya-exito *ngIf="compraExitosa" [titulo]="textosCompraDolarMep.EXITO.TITULO"
+    [subtitulo]="textosCompraDolarMep.EXITO.SUBTITULO" (accionBoton)="cerrar()" [compra]="true">
+  </ftya-exito>
+</div>
+
+<div *ngIf="estaCargandoCotizaciones" class="d-flex inversiones-cargando">
+  <div class="inversiones-cargando__icono"></div>
+  <h3 class="inversiones-cargando__description">Cargando...</h3>
+
+  <div class="progress-bar">
+    <span class="bar"></span>
+  </div>
+</div>

@@ -1,0 +1,193 @@
+@import "~src/assets/variables";
+@import "~src/assets/colors";
+
+.compra-dolar-mep {
+  background-color: $blanco;
+  min-height: 100vh;
+
+  &__contenedor {
+    max-width: 412px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+      text-align: center;
+
+      span {
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .icon.icon-moneda {
+    width: 44px;
+    height: 44px;
+    margin: 15px;
+  }
+
+  &__titulo {
+    font-family: "Whitney", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: $base-negro;
+    margin: 15px 0 30px 0;
+    text-align: center;
+  }
+
+  &__cargando {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    .shared-progress-bar {
+      width: 100%;
+    }
+  }
+
+  &__formulario {
+    width: 100%;
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__dropdown {
+    width: 100%;
+  }
+
+  &__cantidades {
+    margin: 30px 0;
+    border-radius: 5px;
+    background-color: rgba(0, 169, 143, 0.2);
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+
+    &-dolares {
+      margin: 0;
+
+      span {
+        white-space: nowrap;
+      }
+    }
+  }
+
+  &__recordatorio {
+    display: flex;
+    align-items: center;
+    line-height: 1.33;
+    color: $gris-calido;
+
+    .icon {
+      margin-right: 10px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  &__boton-cuentas {
+    margin: 10vh 0;
+  }
+
+  &__boton {
+    margin: 5vh 0;
+  }
+
+  &__confirmacion {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 2% 2%;
+    &-spinner {
+      margin-left: 20px;
+    }
+  }
+
+  &__error {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    color: $gris-calido;
+    font-size: 14px;
+    margin: 10px;
+
+    mat-icon {
+      height: 30px;
+      width: 30px;
+    }
+
+    span {
+      padding-left: 10px;
+    }
+  }
+
+  @media (max-width: map_get($grid-breakpoints, "sm")) {
+    &__contenedor {
+      width: 95%;
+    }
+
+    &__titulo {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+.contenedor-iconos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0px 50px 0px;
+
+  .icono {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 88px;
+
+    &-texto {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 18px;
+      margin-top: 5px;
+      color: $gris-calido;
+
+      &.paso-actual {
+        color: $base-negro;
+      }
+    }
+
+    .texto-paso {
+      color: $base-negro;
+      font-weight: 500;
+      font-size: 10px;
+      line-height: 10px;
+      margin-bottom: 5px;
+    }
+  }
+
+  .linea {
+    background-color: $violeta;
+    height: 2px;
+    width: 60px;
+    margin: 10px;
+    opacity: 0.5;
+  }
+
+  .linea-punteada {
+    border-bottom: 2px dashed $gris-rosado;
+    width: 54px;
+    margin: 5px;
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+}

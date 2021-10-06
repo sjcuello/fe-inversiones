@@ -1,0 +1,28 @@
+<ng-template #stepperCompra>
+  <div class="contenedor-icono-compra">
+    <img src="assets/images/stepper-compra.svg" alt="Pasos compra">
+  </div>
+</ng-template>
+<ng-template #stepperVenta>
+  <div class="contenedor-icono-venta">
+    <img src="assets/images/stepper-venta.svg" alt="Pasos venta">
+  </div>
+</ng-template>
+
+<div class="exito">
+  <ng-container *ngIf="venta" [ngTemplateOutlet]="stepperVenta"></ng-container>
+  <ng-container *ngIf="compra" [ngTemplateOutlet]="stepperCompra"></ng-container>
+
+  <div class="exito--contenido">
+    <h1 class="exito--titulo">{{ titulo }}</h1>
+    <p *ngIf="subtitulo" class="exito--subtitulo">{{ subtitulo }}</p>
+  </div>
+  <div class="exito--boton"> 
+    <ftya-boton [textoBoton]="textoBoton.LISTO" (accionBoton)="clickBoton()"></ftya-boton>
+  </div>
+  <div class="exito--pie">
+    <p *ngIf="textoPie" class="exito--subtitulo">{{textoPie}}</p>
+  </div>
+
+
+</div>

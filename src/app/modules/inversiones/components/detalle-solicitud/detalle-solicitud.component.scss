@@ -1,0 +1,306 @@
+@import "~src/assets/variables";
+@import "~src/assets/colors";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .detalle {
+    max-width: 100%;
+
+    .detalle-contenedor {
+      margin: 0 auto;
+      padding: 23px 20px;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.14);
+      background-color: $gris-blanco-fondo;
+
+      .detalle-titulo {
+        position: relative;
+        display: block;
+        font-size: 11px;
+        text-transform: uppercase;
+        line-height: 23px;
+        color: $gris-calido;
+        text-align: center;
+        .icon {
+          vertical-align: middle;
+          margin: 0 5px 2px 0;
+        }
+      }
+
+      .detalle-datos {
+        margin-top: 16px;
+        padding: 0 0 0 1px;
+
+        .detalle-dato {
+          margin-bottom: 15px;
+          list-style: none;
+
+          .detalle-dato-label {
+            display: block;
+            margin-bottom: 2px;
+            padding-bottom: 2px;
+            font-size: 12px;
+            color: $gris-calido;
+            border-bottom: 1px solid $gris-blanco;
+          }
+
+          .detalle-dato-descripcion {
+            font-size: 16px;
+            font-weight: 500;
+            color: $base-negro;
+          }
+
+          .panel-extensible {
+            border: 1px solid $gris-mate;
+            box-sizing: border-box;
+            border-radius: 5px;
+          }
+
+          .panel-extensible-invisible {
+            background-color: transparent;
+            border: none;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+
+    .mat-expansion-panel {
+      .mat-expansion-panel-header {
+        height: 30px !important;
+      }
+    }
+
+    .titulo-panel {
+      color: $base-negro;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 18px;
+      font-family: "Heebo", sans-serif;
+      margin: 1% 0 1% 0;
+    }
+
+    .valor-panel {
+      color: $base-negro;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 18px;
+      font-family: "Heebo", sans-serif;
+      margin: 1% 4% 1% 0;
+    }
+
+    .titulo-panel-invisible {
+      color: $base-negro;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 18px;
+      font-family: "Heebo", sans-serif;
+      margin: 1% 0 1% 0;
+    }
+
+    .valor-panel-invisible {
+      color: $base-negro;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 18px;
+      font-family: "Heebo", sans-serif;
+      margin: 1% 0 1% 0;
+    }
+
+    .precio-panel-expandido {
+      color: $base-negro;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 18px;
+      font-family: "Heebo", sans-serif;
+      margin: 1% 0 1% 0;
+      padding: 4% 0 1% 0;
+      margin-right: 25px;
+    }
+
+    .detalle-panel {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .detalle-descripcion {
+      color: $base-negro;
+      margin: 7px 16px;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 16px;
+      font-family: "Heebo", sans-serif;
+    }
+
+    .precio-detalle-descripcion {
+      color: $base-negro;
+      margin: 7px 16px;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 16px;
+      font-family: "Heebo", sans-serif;
+      margin-right: 40px;
+    }
+
+    .divider {
+      background-color: $gris-blanco;
+      margin-right: 36px;
+      margin-left: 16px;
+    }
+
+    .zigzag {
+      background: no-repeat center url(~src/assets/images/ticket-border-venta.svg);
+      height: 22px;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    .terminos-condiciones {
+      font-family: "Heebo", sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 16px;
+      color: $gris-calido;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .texto-terminos {
+      width: 300px;
+    }
+
+    input[type="checkbox"] {
+      filter: hue-rotate(159deg);
+      vertical-align: middle;
+      margin: 0 10px 14px 0;
+    }
+  }
+
+  .formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 26px;
+  }
+
+  #requisitosOperacion {
+    color: $rojo;
+    text-decoration: underline;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .tooltip-icon {
+    cursor: pointer;
+    display: inline-flex;
+    vertical-align: middle;
+    color: $gris-calido;
+    height: 60%;
+  }
+
+  .svg {
+    margin: 0 1% 0 1%;
+    height: 60%;
+  }
+
+  @media (min-width: map_get($grid-breakpoints, "md")) {
+    .detalle {
+      width: 600px;
+    }
+  }
+
+  @media (max-width: map_get($grid-breakpoints, "sm")) {
+    .detalle {
+      width: 400px;
+      .mat-expansion-panel {
+        .mat-expansion-panel-header {
+          height: 60px !important;
+        }
+      }
+
+      .titulo-panel {
+        color: $base-negro;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
+        font-family: "Heebo", sans-serif;
+        margin: 1% 0 1% 0;
+      }
+
+      .valor-panel {
+        text-align: end;
+        color: $base-negro;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
+        font-family: "Heebo", sans-serif;
+        margin: 4% 7% 1% 0;
+        width: 50%;
+      }
+
+      .titulo-panel-invisible {
+        color: $base-negro;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
+        font-family: "Heebo", sans-serif;
+        margin: 1% 0 1% 0;
+        padding: 4% 0 1% 0;
+      }
+
+      .valor-panel-invisible {
+        color: $base-negro;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
+        font-family: "Heebo", sans-serif;
+        margin: 1% 0 1% 0;
+        padding: 7% 0 1% 0;
+        width: 50%;
+        text-align: end;
+        padding-left: 10%;
+      }
+    }
+    .detalle-descripcion {
+      width: 40%;
+    }
+    .tooltip-icon {
+      height: 40%;
+    }
+    #montoPesos {
+      width: 85%;
+    }
+    #textoAclaracion {
+      display: none;
+    }
+    #modalidad {
+      width: 100%;
+    }
+  }
+}
+
+::ng-deep .mat-tooltip {
+  background-color: $blanco;
+  box-shadow: 0px 1px 2px $negro-sombra;
+  border-radius: 5px;
+  color: $base-negro !important;
+  font-size: 12px;
+  font-family: "Heebo", sans-serif;
+}

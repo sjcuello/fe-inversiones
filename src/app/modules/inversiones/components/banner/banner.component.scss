@@ -1,0 +1,33 @@
+@import "~src/assets/colors";
+
+.banner {
+  display: flex;
+  border-radius: 5px;
+  background-color: $rojo-claro-fondo;
+
+  &--icono-contenedor {
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    border-radius: 5px 0 0 5px;
+    background-color: $rojo;
+  }
+
+  &--icono {
+    background-image: url(~src/assets/icons/icon-warning-white.svg);
+    display: inline-block;
+    position: relative;
+    width: 30px;
+    height: 30px;
+  }
+
+  &--texto {
+    margin: 0px;
+    font-family: 'Whitney', sans-serif;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.6;
+    padding: 10px;
+  }
+}

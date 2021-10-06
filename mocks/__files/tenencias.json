@@ -1,0 +1,26 @@
+{
+    "parking": {
+        "simbolo": "AL30",
+        "cantidad_nominales": 6,
+        "monto": {
+            "moneda": {
+                "codigo": 2,
+                "simbolo": "u$s",
+                "descripcion": "Dólares"
+            },
+            "monto": 205.620
+        }
+    },
+    "disponible": {
+        "simbolo": "AL30",
+        "cantidad_nominales": 4,
+        "monto": {
+            "moneda": {
+                "codigo": 2,
+                "simbolo": "u$s",
+                "descripcion": "Dólares"
+            },
+            "monto": 137.080
+        }
+    }
+}

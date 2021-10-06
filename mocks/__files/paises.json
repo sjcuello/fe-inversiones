@@ -1,0 +1,18 @@
+[
+    {
+        "codigo": 0,
+        "nombre": "Argentina"
+    },
+    {
+        "codigo": 1,
+        "nombre": "Uruguay"
+    },
+    {
+        "codigo": 2,
+        "nombre": "Chile"
+    },
+    {
+        "codigo": 3,
+        "nombre": "Bolivia"
+    }
+]

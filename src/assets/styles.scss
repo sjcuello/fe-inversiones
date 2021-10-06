@@ -1,0 +1,134 @@
+@import "~src/assets/base/typography";
+body {
+    font-family: 'Heebo', sans-serif;
+    background-color: #f2f4f3;
+}
+
+a {
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+strong {
+    font-weight: 500;
+}
+
+.progress-bar {
+    overflow: hidden;
+    width: 100%;
+}
+
+@keyframes loader {
+    0% {
+        left: -75px;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+.inversiones-cargando {
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .inversiones-cargando__icono {
+        width: 50px;
+        height: 47px;
+        margin-bottom: 28px;
+        background-image: url(icons/logo.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    .inversiones-cargando__description {
+        margin: 0 0 18px;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 1.4;
+        text-align: center;
+    }
+    &>.progress-bar {
+        width: 159px;
+        .bar {
+            overflow: hidden;
+            position: relative;
+            display: block;
+            height: 4px;
+            background: #ffcdd2;
+        }
+        .bar:before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 75px;
+            background: #ee1c25;
+            color: #ffffff;
+            animation: loader 2s ease-in-out infinite;
+        }
+    }
+}
+
+@import "imports";
+
+/** Hack temporal **/
+
+.mat-button.button--arrow {
+    .mat-button-wrapper {
+        display: flex;
+        align-items: center;
+        &::after {
+            content: "";
+            display: inline-block;
+            background: no-repeat center url(~src/assets/icons/flecha-derecha.svg);
+            background-size: cover;
+            width: 15px;
+            height: 15px;
+        }
+    }
+}
+
+.btn-link {
+    padding: 0;
+    -webkit-appearance: button;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    &:hover {
+        border-color: transparent;
+        box-shadow: none;
+    }
+}
+
+hr.separador {
+    margin: 0;
+    padding: 0;
+    height: 1px;
+    width: 100%;
+    border: none;
+    background-color: #c7c7c7;
+}
+
+@import "styles/partials/icons";
+@import "styles/partials/alert";
+@import "~perfect-scrollbar/css/perfect-scrollbar.css";
+@import "vendors/angular-material";
+.error-cuentas {
+    margin-top: 50px;
+}
+
+.opacidad-media {
+    opacity: 0.5;
+}

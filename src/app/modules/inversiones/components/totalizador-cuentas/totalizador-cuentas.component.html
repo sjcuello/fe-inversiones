@@ -1,0 +1,32 @@
+<div [@fadeInOut]
+    *ngIf="saldos?.length && !tieneError"
+    class="totalizador-saldos">
+  <div class="totalizador-saldos__saldos-container">
+    <ng-container *ngFor="let saldo of saldos">
+      <p class="notranslate totalizador-saldos__saldo"
+        [class.saldo_negativo]="saldo.monto < 0"
+        [attr.data-moneda]="saldo.moneda.simbolo">
+        <span aria-hidden="true">
+          {{ saldo.moneda.simbolo }}
+          <span class="monto-entero">{{ saldo.monto | numberToAbs | numberFloor | number:'1.0-0':"es-AR" }}</span>,{{ saldo.monto | numeroDecimal | slice:-2 }}
+        </span>
+        <span class="sr-only">
+          {{ saldo.moneda.simbolo }} {{ saldo.monto | number: '1.2-2':"es-AR" }}
+        </span>
+      </p>
+    </ng-container>
+  </div>
+  <div  class="totalizador-saldos__header">
+    Saldo total en tus cuentas al {{ fechaActual | date: 'dd/MM'}}
+  </div>
+  <div *ngIf="!tieneCuentaDolares" class="totalizador-saldos__header totalizador-saldos__header-sin-dolares">
+    <mat-icon svgIcon="icon-warning"></mat-icon>
+    <span>Para realizar esta operación dirigite a tu sucursal más cercana para abrir tu caja de ahorro en dólares.</span>
+  </div>
+</div>
+
+<div *ngIf="!saldos" class="totalizador-saldos__feedback">
+  <shared-progress-bar *ngIf="!tieneError" class="progress-bar"></shared-progress-bar>
+
+  <ftya-banner class="error-saldos" *ngIf="tieneError" [mensaje]="textoError"></ftya-banner>
+</div>

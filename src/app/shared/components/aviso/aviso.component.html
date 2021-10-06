@@ -1,0 +1,13 @@
+<ngb-alert
+  [type]="type"
+  [dismissible]="dismissible"
+  (close)="emitCloseEvent()"
+>
+  <div class="alert__contenido">
+    <strong class="alert__titulo">{{ alert.leyenda_importante }}</strong>
+    <span class="alert__texto">{{ alert.leyenda }}</span>
+    <ng-container *ngIf="alert.link">
+      <a [href]="alert.link.href" target="_blank" class="alert__link">{{ alert.link.texto }}</a>
+    </ng-container>
+  </div>
+</ngb-alert>

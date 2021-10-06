@@ -1,0 +1,150 @@
+.icon {
+  display: inline-block;
+  position: relative;
+  width: 21px;
+  height: 21px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  &.icon-menu {
+    background-image: url(~src/assets/icons/icon-help.svg);
+  }
+
+  &.icon-summary {
+    background-image: url(~src/assets/icons/icon-summary.svg);
+  }
+
+  &.icon-accounts {
+    background-image: url(~src/assets/icons/icon-accounts.svg);
+  }
+
+  &.icon-creditcards {
+    background-image: url(~src/assets/icons/icon-credit-cards.svg);
+  }
+
+  &.icon-investments {
+    background-image: url(~src/assets/icons/icon-investments.svg);
+  }
+
+  &.icon-loans {
+    background-image: url(~src/assets/icons/icon-loans.svg);
+  }
+
+  &.icon-insurances {
+    background-image: url(~src/assets/icons/icon-insurances.svg);
+  }
+
+  &.icon-servicepayments {
+    background-image: url(~src/assets/icons/icon-service-payments.svg);
+  }
+
+  &.icon-transfers {
+    background-image: url(~src/assets/icons/icon-transfers.svg);
+  }
+
+  &.icon-supervielleclub {
+    background-image: url(~src/assets/icons/icon-supervielle-club-full.svg);
+  }
+
+  &.icon-123-chances {
+    background-image: url(~src/assets/icons/icon-123-chances-full.svg);
+  }
+
+  &.icon-previtionalclub {
+    background-image: url(~src/assets/icons/icon-supervielle-club.svg);
+  }
+
+  &.icon-storesupervielle {
+    background-image: url(~src/assets/icons/icon-store-supervielle.svg);
+  }
+
+  &.icon-minegocio {
+    background-image: url(~src/assets/icons/icon-mi-negocio.svg);
+  }
+
+  &.icon-help {
+    background-image: url(~src/assets/icons/icon-help.svg);
+  }
+
+  &.icon-reclamos {
+    background-image: url(icons/icon-reclamos.svg);
+  }
+
+  &.icon-contact {
+    background-image: url(~src/assets/icons/icon-contact.svg);
+  }
+
+  &.icon-logout {
+    background-image: url(~src/assets/icons/icon-logout.svg);
+  }
+
+  &.icon-star {
+    background-image: url(~src/assets/icons/icon-star.svg);
+  }
+
+  &.icon-down {
+    background-image: url(~src/assets/icons/icon-down.svg);
+  }
+
+  &.icon-up {
+    background-image: url(~src/assets/icons/icon-up.svg);
+  }
+
+  &.icon-close {
+    background-image: url(~src/assets/icons/icon-close.svg);
+  }
+
+  &.icon-lampara-prendida {
+    background-image: url(~src/assets/icons/icon-lampara-prendida.svg);
+  }
+
+  &.icon-moneda {
+    background-image: url(~src/assets/icons/icon-moneda.svg);
+  }
+
+  &.icon-eye-grey {
+    background-image: url(~src/assets/icons/icon-eye-grey.svg);
+  }
+
+  &.icon-extraction {
+    background-image: url(~src/assets/icons/icon-extraction.svg);
+  }
+
+  &.icon-flecha-izquierda {
+    background-image: url(~src/assets/icons/icon-flecha-izquierda.svg);
+  }
+
+  &.icon-warning-circle {
+    background-image: url(~src/assets/icons/icon-warning-circle.svg);
+  }
+
+  &.icon-badge-success {
+    background-image: url(icons/icon-badge-success.svg);
+  }
+
+  &.icon-dolars {
+    background-image: url(~src/assets/icons/icon-dolars.svg);
+  }
+
+  &.icon-dolars-grey {
+    background-image: url(~src/assets/icons/icon-dolars-grey.svg);
+  }
+
+  &.icon-clock {
+    background-image: url(~src/assets/icons/icon-clock.svg);
+  }
+
+  &.icon-clock-grey {
+    background-image: url(~src/assets/icons/icon-clock-grey.svg);
+  }
+
+  &.icon-pesos {
+    background-image: url(~src/assets/icons/icon-pesos.svg);
+  }
+
+  &.icon-hub-virtual {
+    background-image: url(icons/icon-hub-virtual.svg);
+  }
+}

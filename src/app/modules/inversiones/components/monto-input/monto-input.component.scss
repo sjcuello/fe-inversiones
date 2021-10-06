@@ -1,0 +1,97 @@
+@import "~src/assets/variables";
+@import '~src/assets/colors';
+
+:host {
+  width: 100%;
+  padding: 0 2vw;
+
+  .seleccion-importe {
+    width: 100%;
+
+    & mat-form-field {
+      text-align: center;
+      width: 100%;
+
+      &::ng-deep .mat-form-field-wrapper {
+        padding-bottom: 0;
+      }
+
+      &.invalid {
+        color: $rojo;
+      }
+
+      & mat-label {
+        text-align: center;
+        font-family: 'Heebo', sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 16px;
+      }
+    }
+
+    & .inputMonto {
+      font-size: 30px;
+      line-height: 1.6;
+      text-align: center;
+      &[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      &[type="number"] {
+        -moz-appearance: textfield;
+      }
+
+      &:-webkit-autofill {
+        box-shadow: 0 0 0px 1000px $blanco inset;
+        -webkit-box-shadow: 0 0 0px 1000px $blanco inset;
+        background-color: transparent;
+      }
+    }
+
+    &__title {
+      color: $gris-calido;
+      font-size: 11px;
+      line-height: 16px;
+      margin-bottom: 5px;
+    }
+
+    .mensaje {
+      font-family: 'Heebo', sans-serif;
+      font-size: 12px;
+      text-align: center;
+      color: $rojo;
+    }
+  }
+
+  @media (min-width: map_get($grid-breakpoints, "sm")) {
+    max-width: none;
+
+    & > * {
+      max-width: 412px;
+    }
+
+    & > .title {
+      letter-spacing: 0;
+      max-width: none;
+    }
+  }
+
+  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: $gris;
+  }
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+    color: $gris;
+  }
+  ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  ::ng-deep .mat-input-element {
+    caret-color: $gris;
+    -webkit-text-fill-color: $gris-medio-oscuro;
+  }
+  ::ng-deep .mat-form-field.mat-focused .mat-input-element {
+    -webkit-text-fill-color: $base-negro;
+  }
+}

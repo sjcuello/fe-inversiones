@@ -1,0 +1,14 @@
+{
+    "request": {
+      "method": "POST",
+      "url": "/obi/inversiones/api/v1.0/dolar-mep/ventas"
+    },
+    "response": {
+      "status": 200,
+      "bodyFileName": "ventas.json",
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    }
+  }
+  

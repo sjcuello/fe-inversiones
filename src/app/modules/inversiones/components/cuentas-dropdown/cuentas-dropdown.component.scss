@@ -1,0 +1,120 @@
+@import '~src/assets/variables';
+@import '~src/assets/colors';
+
+ ::ng-deep {
+  .mat-form-field {
+    width: 100%;
+
+    .mat-form-field-wrapper {
+      padding: 0;
+
+      .mat-form-field-infix {
+        position: relative;
+        border: none;
+
+        mat-select {
+          width: 100%;
+          padding: 10px 16px;
+          border-radius: 6px;
+          border: 1px solid $gris-rosado;
+          color: $gris-oscuro;
+          font-size: 16px;
+          font-weight: 500;
+          display: flex;
+          align-items: center;
+
+          &::placeholder {
+            font-family: 'Heebo', sans-serif;
+            font-size: 16px;
+            color: $gris-calido;
+            text-transform: none;
+          }
+        }
+
+        .mat-select-trigger {
+          width: 100%;
+
+          .mat-select-value {
+            line-height: 1.5;
+
+            .mat-select-value-text {
+              white-space: pre-line;
+              font-family: 'Heebo', sans-serif;
+              color: $base-negro ;
+              font-weight: 400;
+            }
+          }
+        }
+
+        .mat-select-arrow {
+          border: none;
+          width: 24px;
+          height: 24px;
+          background-image: url(~src/assets/icons/icon-arrow-down.svg);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+          margin: 0;
+        }
+          
+        .mat-form-field-label-wrapper {
+          top: 0;
+
+          .mat-form-field-label {
+            background-color: $blanco;
+            width: max-content;
+            margin-left: 10px;
+            padding: 0 10px;
+
+            mat-label {
+              font-family: 'Heebo', sans-serif;
+              font-size: 16px;
+              color: $gris-calido;
+            }
+          }
+        }
+      }
+    }
+
+    &.mat-focused {
+      .mat-form-field-wrapper {  
+        .mat-form-field-infix {
+          mat-select {
+            border: 2px solid $gris;
+          }
+        }
+      }
+    }
+
+    .mat-form-field-underline {
+      display: none;
+    }
+  }
+
+  .mat-select-panel {
+    .mat-option {
+      &.mat-selected {
+        &:not(.mat-option-multiple) {
+          background: $gris-blanco-fondo;
+        }
+
+        &:not(.mat-active) {
+          background: none;
+        }
+
+        &:not(.mat-option-disabled) {
+          color: $rojo;
+        }
+      }
+
+      &.mat-active {
+        background: $gris-blanco-fondo;
+      }
+
+      .mat-option-text {
+        white-space: pre-line;
+        line-height: 1.5;
+      }
+    }
+  }
+}

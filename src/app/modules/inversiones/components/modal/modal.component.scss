@@ -1,0 +1,87 @@
+@import "~src/assets/variables";
+@import "~src/assets/colors";
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  max-height: none;
+}
+
+.contenido {
+  overflow: auto;
+  width: 515px;
+  height: 270px;
+  left: 565px;
+  top: 332px;
+  background: $gris-claro-fondo;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.titulo {
+  height: 28px;
+  left: 0%;
+  right: 69.49%;
+  top: calc(50% - 28px / 2 - 121.1px);
+  font-family: "Heebo", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.1px;
+  color: $base-negro;
+}
+
+.texto {
+  left: 0%;
+  right: 0%;
+  top: 17.96%;
+  bottom: -127.46%;
+  font-family: "Heebo", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  color: $gris-calido;
+}
+
+.icono {
+  cursor: pointer;
+}
+
+.botones {
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedor-icono {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: $gris-claro-barra;
+}
+
+::-webkit-scrollbar-thumb {
+  background: blue;
+  left: 65.65%;
+  right: 33.99%;
+  top: 32.1%;
+  bottom: 63.52%;
+  background-color: $gris-claro;
+  border-radius: 16px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $gris;
+}

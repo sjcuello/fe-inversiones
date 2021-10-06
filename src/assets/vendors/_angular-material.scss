@@ -1,0 +1,105 @@
+@import "~@angular/material/theming";
+@import "./variables";
+
+/* Botones */
+
+// Elimina bordes negros en botones de material y agrega animación
+.mat-button-base {
+    transition: box-shadow 400ms ease-in-out;
+    &:hover,
+    &:focus {
+        outline: none;
+        box-shadow: 0 9px 20px 0 rgba(0, 0, 0, 0.1);
+        &,
+        &.cdk-keyboard-focused {
+            .mat-button-focus-overlay {
+                opacity: 0 !important;
+            }
+        }
+    }
+}
+
+.mat-button-base.mat-icon-button {
+    box-shadow: none;
+    &:hover,
+    &:focus {
+        &,
+        &.cdk-keyboard-focused {
+            .mat-button-focus-overlay {
+                opacity: 0.12;
+            }
+        }
+    }
+}
+
+
+/* dialog */
+
+.dialog-box {
+    mat-dialog-container {
+        margin: 0 !important;
+        border-radius: 7px !important;
+    }
+    /* input form material*/
+    .mat-form-field-wrapper {
+        padding-bottom: 0px !important;
+    }
+    .mat-dialog-actions {
+        margin-bottom: -40px;
+        display: none;
+    }
+    .mat-dialog-container {
+        padding: 10px 15px;
+        box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.15);
+    }
+    .mat-dialog-content {
+        display: flex;
+        flex-direction: column;
+        align-content: stretch;
+        margin: 0 -30px;
+        padding: 0 0;
+        max-height: calc(100vh + -50px) !important;
+    }
+}
+
+@media (max-width: map_get($grid-breakpoints, "sm")) {
+    .dialog-box {
+        max-width: 100% !important;
+        position: absolute !important;
+        bottom: 0 !important;
+        max-height: calc(100vh + -15px) !important;
+    }
+}
+
+/* checkbox */
+
+.mat-checkbox {
+    .mat-checkbox-layout {
+        white-space: normal !important;
+        .mat-checkbox-inner-container {
+            top: 3px;
+            margin: 0;
+            margin-right: 8px;
+        }
+    }
+    .mat-checkbox-background {
+        background-color: #ededed;
+        border-radius: 3px;
+        border: 1px solid #c7c7c7;
+    }
+    .mat-checkbox-frame {
+        border-style: none;
+    }
+}
+
+.mat-checkbox-checked .mat-checkbox-background {
+    background-color: #d52b1e !important;
+    border: 1px solid #d52b1e;
+}
+
+.mat-checkbox-checkmark .mat-checkbox-checkmark-path {
+    stroke: white !important;
+}
+
+// place the fix before mat-core() mixin
+@include mat-core();

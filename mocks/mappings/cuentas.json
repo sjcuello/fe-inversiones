@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/obi/inversiones/api/v1.0/cuentas"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "cuentas.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

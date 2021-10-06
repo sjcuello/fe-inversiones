@@ -1,0 +1,374 @@
+<ng-template #cardBoton>
+    <ftya-stepper-onboarding #stepperOnboarding>
+        <cdk-step>
+            <ng-template cdkStepLabel>
+                <div *ngIf="validaStep(0); then thenFullProfile else elseHideProfile"></div>
+                <ng-template #thenFullProfile>
+                    <mat-icon id="icon-investor-profile" svgIcon="icon-investor-profile" class="icono-stepper"
+                        aria-hidden="false">
+                    </mat-icon>
+                </ng-template>
+                <ng-template #elseHideProfile>
+                    <mat-icon id="icon-investor-profile-hide" svgIcon="icon-investor-profile-hide" class="icono-stepper"
+                        aria-hidden="false">
+                    </mat-icon>
+                </ng-template>
+                <span class="titulo-stepper">Perfil de inversor</span>
+            </ng-template>
+            <div class="perfil-del-inversor">
+                <div>
+                    <img alt="perfil-inversor-image" src="assets/images/perfil-inversor.svg" class="imagen-inversor" />
+                </div>
+                <div class="bloque-texto-inversor">
+                    <p class="texto-titulo">Perfil del inversor</p>
+                    <p class="texto-inversor">Para empezar te asignaremos un perfil de inversor <strong>conservador</strong>.
+                        Una vez creada tu cuenta podrás modificarlo accediendo al cuestionario.</p>
+                        <p class="texto-inversor-pre-lista">
+                            Si tenés un perfil de inversor conservador:
+                        </p>
+                            <ul class="texto-inversor">
+                                <li>Preferís no arriesgarte aunque ganes menos.</li>
+                                <li>No tenés apuro mientras tus ahorros crezcan.</li>
+                                <li>Tenés metas claras.</li>
+                            </ul>
+                    <div class="botones-inversor">
+                        <ftya-boton class="boton-bordo" [textoBoton]="textosOnboarding.GENERICOS.ACEPTAR_SEGUIR"
+                            (accionBoton)="irAlPasoSiguienteOnboarding()"></ftya-boton>
+                        <ftya-boton class="boton-volver" [textoBoton]="textosOnboarding.GENERICOS.VOLVER_ATRAS"
+                            [tipoBoton]="'link'" (accionBoton)="reseteaStepper()"></ftya-boton>
+                    </div>
+                </div>
+            </div>
+        </cdk-step>
+        <cdk-step>
+            <form [formGroup]="form">
+                <ng-template cdkStepLabel>
+                    <div *ngIf="validaStep(1); then thenFullWork else elseHideWork"></div>
+                    <ng-template #thenFullWork>
+                        <mat-icon id="icon-work-activity" svgIcon="icon-work-activity" class="icono-stepper"
+                            aria-hidden="false">
+                        </mat-icon>
+                    </ng-template>
+                    <ng-template #elseHideWork>
+                        <mat-icon id="icon-work-activity-hide" svgIcon="icon-work-activity-hide" class="icono-stepper"
+                            aria-hidden="false">
+                        </mat-icon>
+                    </ng-template>
+                    <span [ngClass]="{ 'titulo-stepper': validaStep(1), 'titulo-stepper-hide': !validaStep(1) }"
+                    >Actividad laboral y residencia</span>
+                </ng-template>
+                <section class="bloque">
+                    <p class="titulo-select" [ngClass]="{'titulo-select-error': tieneErrorSeleccionadoValidado('actividad_laboral') }">{{textosOnboarding.ACTIVIDAD_LABORAL.TITULO}}</p>
+                    <mat-form-field appearance="fill"
+                        [ngClass]="{ 'lista-actividad': !validaErrores('actividad_laboral') || validaErroresSeleccionoado('actividad_laboral'), 'lista-actividad-error': tieneErrorSeleccionadoValidado('actividad_laboral') }">
+                        <mat-label class="label-select" *ngIf="!form.get('actividad_laboral').dirty">
+                            {{textosOnboarding.ACTIVIDAD_LABORAL.SELECCION_ACTIVIDAD}}
+                        </mat-label>
+                        <mat-select formControlName="actividad_laboral">
+                            <mat-option [value]=""> - {{textosOnboarding.ACTIVIDAD_LABORAL.SELECCION_ACTIVIDAD}} -
+                            </mat-option>
+                            <mat-option *ngFor="let item of listaLaboral" [value]="item.valor">
+                                {{item.valorVista}}
+                            </mat-option>
+                        </mat-select>
+
+                    </mat-form-field>
+                    <mat-error *ngIf="tieneErrorSeleccionadoValidado('actividad_laboral')">
+                        <p class="erorr-campo">
+                            <mat-icon id="alerta-formato" svgIcon="icon-alert-red" class="icon-tooltip" tabindex="0"
+                                aria-hidden="false">
+                            </mat-icon>
+                            {{textosOnboarding.GENERICOS.CAMPO_OBLIGATORIO}}
+                        </p>
+                    </mat-error>
+                </section>
+
+                <section class="bloque">
+                    <div class="toggle">
+                        <p class="col-11 texto-toggle">
+                            ¿Sos una persona <a class="resalta-texto"
+                                (click)="abrirModal(textosOnboarding.MODALES.TITULO_PEP, textosOnboarding.MODALES.TTCC_PEP)"
+                                tabindex="0"
+                                (keypress)="abrirModal(textosOnboarding.MODALES.TITULO_PEP, textosOnboarding.MODALES.TTCC_PEP)">políticamente
+                                expuesta (PEP)</a>?
+                            <mat-icon id="sujeto-expuesto" svgIcon="icon-tooltip-square" class="icon-tooltip"
+                                tabindex="0" aria-hidden="false"
+                                [attr.aria-label]="textosOnboarding.ACTIVIDAD_LABORAL.TOOLTIP_PERSONA_EXPUESTA"
+                                [matTooltip]="textosOnboarding.ACTIVIDAD_LABORAL.TOOLTIP_PERSONA_EXPUESTA"
+                                matTooltipClass="custom-tooltip">
+                            </mat-icon>
+                        </p>
+                        <ftya-toggle class="col-0" [pulsado]="primerPanel"
+                            (cambioEstado)="cambiaEstadoPanel($event, 1)">
+                        </ftya-toggle>
+                    </div>
+                    <div class="desplegable" *ngIf="primerPanel">
+                        <p class="titulo-select" [ngClass]="{'titulo-select-error': validaErrores('motivo_expuesto')}">{{textosOnboarding.ACTIVIDAD_LABORAL.INDICAR_MOTIVO}}</p>
+                        <mat-form-field
+                            [ngClass]="{ 'input-formulario': !validaErrores('motivo_expuesto'), 'input-formulario-error': validaErrores('motivo_expuesto') }"
+                            appearance="fill">
+                            <input maxlength="60" matInput placeholder="" value="" formControlName="motivo_expuesto">
+                        </mat-form-field>
+
+                        <mat-hint *ngIf="!validaErrores('motivo_expuesto'); else elseMotivo">
+                            {{textosOnboarding.ACTIVIDAD_LABORAL.INCLUIR_DESCRIPCION}}</mat-hint>
+                        <ng-template #elseMotivo>
+                            <mat-error>
+                                <p class="erorr-campo">
+                                    <mat-icon id="alerta-formato" svgIcon="icon-alert-red" class="icon-tooltip"
+                                        tabindex="0" aria-hidden="false">
+                                    </mat-icon>
+                                    {{textosOnboarding.GENERICOS.CAMPO_OBLIGATORIO}}
+                                </p>
+                            </mat-error>
+                        </ng-template>
+
+                    </div>
+                </section>
+
+                <section class="bloque">
+                    <div class="toggle">
+                        <p class="col-11 texto-toggle">
+                            ¿Sos <a class="resalta-texto"
+                                (click)="abrirModal(textosOnboarding.MODALES.TITULO_SUJETO_OBLIGADO, textosOnboarding.MODALES.TTCC_SUJETO_OBLIGADO)"
+                                tabindex="0"
+                                (keypress)="abrirModal(textosOnboarding.MODALES.TITULO_SUJETO_OBLIGADO, textosOnboarding.MODALES.TTCC_SUJETO_OBLIGADO)">sujeto
+                                obligado</a> según Unidad de Información Financiera?
+                            <mat-icon id="sujeto-obligado" svgIcon="icon-tooltip-square" class="icon-tooltip"
+                                tabindex="0" aria-hidden="false"
+                                [attr.aria-label]="textosOnboarding.ACTIVIDAD_LABORAL.TOOLTIP_SUJETO_OBLIGADO"
+                                [matTooltip]="textosOnboarding.ACTIVIDAD_LABORAL.TOOLTIP_SUJETO_OBLIGADO">
+                            </mat-icon>
+                        </p>
+
+                        <ftya-toggle class="col-0" [pulsado]="segundoPanel"
+                            (cambioEstado)="cambiaEstadoPanel($event, 2)">
+                        </ftya-toggle>
+                    </div>
+                    <div *ngIf="segundoPanel">
+                        <div class="boton-subida">
+                            <ftya-boton [textoBoton]="'Subir certificado de inscripcion'" [tipoBoton]="'link'"
+                                [iconoBotonDerecha]="'icon-upload-transparent'" [labelGris]=true>
+                            </ftya-boton>
+                            <input type="file" formControlName="certificado_cargado" class="input-subida">
+                        </div>
+                        <p class="texto-formato">
+                            <mat-icon id="alerta-formato" svgIcon="icon-alert-red" class="icon-tooltip" tabindex="0"
+                                aria-hidden="false">
+                            </mat-icon>
+                            {{textosOnboarding.ACTIVIDAD_LABORAL.FORMATO_PDF}}
+                        </p>
+
+                    </div>
+                </section>
+
+                <mat-divider role="separator" class="divider"></mat-divider>
+
+                <section class="bloque">
+                    <div class="toggle">
+                        <p class="col-11 texto-toggle">{{textosOnboarding.ACTIVIDAD_LABORAL.RESIDENTE_ARGENTINO}}</p>
+                        <ftya-toggle class="col-0" [pulsado]="tercerPanel"
+                            (cambioEstado)="cambiaEstadoPanel($event, 3)">
+                        </ftya-toggle>
+                    </div>
+                    <a class="resalta-texto"
+                        (click)="abrirModal(textosOnboarding.MODALES.TITULO_FACTA, textosOnboarding.MODALES.TTCC_FACTA)"
+                        tabindex="0"
+                        (keypress)="abrirModal(textosOnboarding.MODALES.TITULO_FACTA, textosOnboarding.MODALES.TTCC_FACTA)">
+                        {{textosOnboarding.ACTIVIDAD_LABORAL.LEY_AFIP}}
+                        <mat-icon id="resolucion-afip" svgIcon="icon-link-redirect" class="icon-tooltip">
+                        </mat-icon>
+                    </a>
+                    <div class="desplegable" *ngIf="tercerPanel">
+                        <p class="titulo-select" [ngClass]="{'titulo-select-error': validaErrores('pais_recidencia')}">{{textosOnboarding.ACTIVIDAD_LABORAL.PAIS_RESIDENCIA}}</p>
+                        <mat-form-field appearance="fill"
+                            [ngClass]="{ 'lista-actividad': !validaErrores('pais_recidencia'), 'lista-actividad-error': validaErrores('pais_recidencia') }">
+                            <mat-label class="label-select" *ngIf="!form.get('pais_recidencia').dirty">
+                                {{textosOnboarding.ACTIVIDAD_LABORAL.SELECCION_PAIS}}</mat-label>
+                            <mat-select formControlName="pais_recidencia">
+                                <mat-option [value]=""> - {{textosOnboarding.ACTIVIDAD_LABORAL.SELECCION_PAIS}} -
+                                </mat-option>
+                                <mat-option *ngFor="let item of listaPaises" [value]="item">
+                                    {{item.nombre}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <p class="titulo-select" [ngClass]="{'titulo-select-error': validaErrores('direccion')}">{{textosOnboarding.ACTIVIDAD_LABORAL.DIRECCION}}</p>
+                        <mat-form-field
+                            [ngClass]="{ 'input-formulario': !validaErrores('direccion'), 'input-formulario-error': validaErrores('direccion') }"
+                            appearance="fill">
+                            <input matInput placeholder="" value="" formControlName="direccion">
+                        </mat-form-field>
+                        <mat-error *ngIf="validaErrores('direccion')">
+                            <p class="erorr-campo">
+                                <mat-icon id="alerta-formato" svgIcon="icon-alert-red" class="icon-tooltip" tabindex="0"
+                                    aria-hidden="false">
+                                </mat-icon>
+                                {{textosOnboarding.GENERICOS.CAMPO_OBLIGATORIO}}
+                            </p>
+                        </mat-error>
+                        <div class="contenedor-triple">
+                            <div class="fraccion-simple">
+                                <p class="titulo-select" [ngClass]="{'titulo-select-error': validaErrores('ciudad')}">{{textosOnboarding.ACTIVIDAD_LABORAL.CIUDAD}}</p>
+                                <mat-form-field [ngClass]="{ 'input-formulario': !validaErrores('ciudad'), 'input-formulario-error': validaErrores('ciudad') }"
+                                 appearance="fill">
+                                    <input matInput placeholder="" value="" formControlName="ciudad">
+                                </mat-form-field>
+                            </div>
+                            <div class="fraccion-simple">
+                                <p class="titulo-select" [ngClass]="{'titulo-select-error': validaErrores('estado')}">{{textosOnboarding.ACTIVIDAD_LABORAL.ESTADO}}</p>
+                                <mat-form-field [ngClass]="{ 'input-formulario': !validaErrores('estado'), 'input-formulario-error': validaErrores('estado') }"
+                                 appearance="fill">
+                                    <input matInput placeholder="" value="" formControlName="estado">
+                                </mat-form-field>
+                            </div>
+                            <div class="fraccion-simple">
+                                <p class="titulo-select" [ngClass]="{'titulo-select-error': validaErrores('codigo_postal')}">{{textosOnboarding.ACTIVIDAD_LABORAL.COD_POSTAL}}</p>
+                                <mat-form-field [ngClass]="{ 'input-formulario': !validaErrores('codigo_postal'), 'input-formulario-error': validaErrores('codigo_postal') }"
+                                 appearance="fill">
+                                    <input matInput placeholder="" value="" formControlName="codigo_postal">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <p class="titulo-select" [ngClass]="{'titulo-select-error': validaErrores('nro_identificacion')}">{{textosOnboarding.ACTIVIDAD_LABORAL.ID_TRIBUTARIO}}</p>
+                        <mat-form-field
+                            [ngClass]="{ 'input-formulario': !validaErrores('nro_identificacion'), 'input-formulario-error': validaErrores('nro_identificacion') }"
+                            appearance="fill">
+                            <input matInput placeholder="" value="" formControlName="nro_identificacion">
+                        </mat-form-field>
+                        <mat-error *ngIf="validaErrores('nro_identificacion')">
+                            <p class="erorr-campo">
+                                <mat-icon id="alerta-formato" svgIcon="icon-alert-red" class="icon-tooltip" tabindex="0"
+                                    aria-hidden="false">
+                                </mat-icon>
+                                {{textosOnboarding.GENERICOS.CAMPO_OBLIGATORIO}}
+                            </p>
+                        </mat-error>
+                        <p class="titulo-select" [ngClass]="{'titulo-select-error': validaErrores('ciudadania')}">{{textosOnboarding.ACTIVIDAD_LABORAL.CIUDADANIA}}</p>
+                        <mat-form-field appearance="fill"
+                            [ngClass]="{ 'lista-actividad': !validaErrores('ciudadania'), 'lista-actividad-error': validaErrores('ciudadania') }">
+                            <mat-label class="label-select" *ngIf="!form.get('ciudadania').dirty">
+                                {{textosOnboarding.ACTIVIDAD_LABORAL.SELECCION_PAIS}}</mat-label>
+                            <mat-select formControlName="ciudadania">
+                                <mat-option [value]=""> - {{textosOnboarding.ACTIVIDAD_LABORAL.SELECCION_PAIS}} -
+                                </mat-option>
+                                <mat-option *ngFor="let item of listaPaises" [value]="item">
+                                    {{item.nombre}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </section>
+                <mat-divider role="separator" class="divider"></mat-divider>
+                <div class="terminos">
+                    <div class="termino">
+                        <p class="texto-resumen">Te resumimos las <a class="resalta-texto">condiciones para operar</a>
+                            en InvertirOnline
+                            a través del Online Banking de Banco Supervielle:
+                        </p>
+                    </div>
+                    <div class="termino">
+                        <input formControlName="terminos_1" type="checkbox" id="cbox1" value="checkbox">
+                        <p class="texto-ttcc ">
+                            He leído y acepto los
+                            <a class="resalta-texto"
+                                (click)="abrirModal(textosOnboarding.MODALES.TITULO_TTCC_SPV, terminosSPV)"
+                                tabindex="0"
+                                (keypress)="abrirModal(textosOnboarding.MODALES.TITULO_TTCC_SPV, terminosSPV)">
+                                términos y condiciones</a> de apertura de cuenta comitente en InvertirOnline.
+                        </p>
+                    </div>
+                    <div class="termino">
+                        <input formControlName="terminos_2" type="checkbox" id="cbox2" value="checkbox">
+                        <p for="cbox2" class="texto-ttcc ">
+                            He leído y acepto los <a class="resalta-texto">términos y condiciones</a> para operar en IOL
+                            desde el HomeBanking de Banco Supervielle.
+                        </p>
+                    </div>
+                </div>
+                <div class="botones">
+                    <ftya-boton class="boton-bordo" [textoBoton]="textosOnboarding.GENERICOS.ACEPTAR_SEGUIR"
+                        (accionBoton)="confirmacionActividResidencia()">
+                    </ftya-boton>
+                    <ftya-boton class="boton-volver" [textoBoton]="textosOnboarding.GENERICOS.VOLVER_ATRAS"
+                        [tipoBoton]="'link'" (accionBoton)="irAlPasoAnteriorOnboarding()">
+                    </ftya-boton>
+                </div>
+            </form>
+        </cdk-step>
+        <cdk-step>
+            <ng-template cdkStepLabel>
+                <mat-icon id="icon-contact-confirmation" svgIcon="icon-contact-confirmation" class="icono-stepper"
+                    aria-hidden="false">
+                </mat-icon>
+                <span class="titulo-stepper-hide">Confirmación de contacto</span>
+            </ng-template>
+            <p>Confirmacion de contacto</p>
+            <ftya-boton class="boton-bordo boton-largo" [textoBoton]="'Este stepp no existe en esta instancia'"
+                (accionBoton)="irAlPasoSiguiente()">
+            </ftya-boton>
+        </cdk-step>
+    </ftya-stepper-onboarding>
+</ng-template>
+
+<div class="onboarding">
+    <shared-header></shared-header>
+    <div class="contenedor">
+        <ftya-stepper #stepper [ocultarStepper]="true">
+            <cdk-step>
+                <div class="saludo">
+                    <div>
+                        <img alt="main-image" src="assets/images/saludo-inversiones.svg" class="imagen-saludo" />
+                    </div>
+                    <div class="bloque-texto-boton">
+                        <div class="bloque-texto">
+                            <p class="texto-titulo">¡Hola{{nombre ? ' ' + nombre : ''}}!</p>
+                            <p class="texto">Para operar por Online Banking debemos crear una cuenta
+                                comitente a través de InvertirOnline.* </p>
+                            <p class="texto">Para ello, debemos validar algunos datos.</p>
+                        </div>
+
+                        <ftya-boton class="boton-bordo" [textoBoton]="textosOnboarding.GENERICOS.CONTINUAR"
+                            (accionBoton)="irAlPasoSiguiente()"></ftya-boton>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="footer-image">
+                        <p>JUNTO CON</p>
+                        <img alt="iol-inversiones" class="imagen" src="assets/images/iol-invertionline.svg" />
+                    </div>
+                    <div class="footer-text">
+                        <p>*1. Para la creación de la cuenta comitente utilizaremos datos que ya
+                            tenés registrados en el banco. 2. La cuenta comitente será abierta en IOL 
+                            (Agente de Liquidación y Compensación ante la Comisión Nacional de Valores).
+                            3. Solo se permitirá (al menos al principio) la compra-venta
+                            de títulos con cotización en moneda local y extranjera.</p>
+                    </div>
+                </div>
+            </cdk-step>
+            <cdk-step>
+                <ng-container [ngTemplateOutlet]="cardBoton"></ng-container>
+            </cdk-step>
+            <cdk-step>
+                <div class="felicitaciones">
+                    <div>
+                        <img alt="main-image" src="assets/images/felicitaciones.svg" class="imagen-felicitaciones" />
+                    </div>
+                    <div class="bloque-texto-boton-felicitaciones">
+                        <div class="bloque-texto-felicitaciones">
+                            <p class="texto-titulo">¡Felicitaciones{{nombre ? ', ' + nombre : ''}}!</p>
+                            <p class="texto-felicitaciones">
+                                Tu solicitud de apertura de cuenta en IOL está en proceso.
+                            </p>
+                            <p class="texto-pequenio">
+                                Una vez que tu cuenta esté creada te avisaremos por e-mail para que puedas empezar a operar.
+                            </p>
+                        </div>
+                        <ftya-boton class="boton-bordo" (accionBoton)="irAHomeInversiones()" [textoBoton]="textosOnboarding.GENERICOS.VOLVER_HOME_INVERSIONES">
+                        </ftya-boton>
+                    </div>
+                </div>
+            </cdk-step>
+        </ftya-stepper>
+    </div>
+</div>

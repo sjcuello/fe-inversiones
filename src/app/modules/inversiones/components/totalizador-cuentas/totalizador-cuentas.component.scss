@@ -1,0 +1,125 @@
+@import "~src/assets/variables";
+@import '~src/assets/colors';
+
+:host {
+  display: block;
+  background-color: $blanco;
+
+  .totalizador-saldos {
+    padding: 20px 0 20px 0;
+    letter-spacing: 0;
+
+    &__header {
+      font-weight: 400;
+      color: $base-negro;
+      font-size: 14px;
+      line-height: 16px;
+      text-align: center;
+      margin-top: 11px;
+    }
+
+    &__header-sin-dolares {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      span {
+        padding-left: 5px;
+        font-weight: 600;
+        line-height: initial;
+      }
+    }
+
+    &__saldos-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    &__saldo {
+      font-family: 'Whitney', sans-serif;
+      font-weight: 400;
+      order: 2;
+      margin:  0 10px 10px 10px;
+      font-size: 28px;
+      line-height: 35px;
+      text-align: center;
+      color: $base-negro;
+      white-space: nowrap;
+
+      &[data-moneda="$"] {
+        flex-basis: 100%;
+        order: 1;
+        font-size: 25px;
+        line-height: 35px;
+        margin-bottom: 10px;
+      }
+
+      &[data-moneda="u$s"] {
+        font-size: 25px;
+        line-height: 35px;
+        margin-bottom: 10px;
+      }
+
+      &.saldo_negativo {
+        color: $rojo;
+
+        &::before {
+          content: "-";
+        }
+      }
+
+      .monto-entero {
+        font-size: 1.25em;
+      }
+    }
+
+    &__feedback {
+      min-height: 166px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    
+      .progress-bar {
+        width: 100vw;
+      }
+
+      .error-saldos {
+        padding: 10px;
+      }
+    }
+  }
+
+  @media (min-width: map_get($grid-breakpoints, "lg")) {
+    .totalizador-saldos {
+      padding: 50px 0 38px;
+
+      &__saldo {
+        margin-right: 20px;
+        font-size: 40px;
+        line-height: 35px;
+
+        &[data-moneda="$"] {
+          font-size: 32px;
+          flex-basis: auto;
+        }
+        &[data-moneda="u$s"] {
+          font-size: 32px;
+        }
+      }
+
+      &__saldos-container {
+        flex-wrap: nowrap;
+      }
+    }
+  }
+
+  @media (max-width: map_get($grid-breakpoints, "md")) {
+    .totalizador-saldos {
+      &__header-sin-dolares {
+        flex-direction: column;
+      }
+    }
+  }
+}

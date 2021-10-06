@@ -1,0 +1,12 @@
+<button mat-flat-button class="btn-spv btn-spv__{{ estaCargando }}" role="button" [attr.aria-label]="textoBoton"
+  (click)="emitirAccionBoton()" (keyup)="emitirPorTeclado($event)"
+  [ngClass]="{ 'btn-spv__deshabilitado': estaDeshabilitado }" [disabled]="estaDeshabilitado || cargando" [ngStyle]="customStyle">
+  <mat-icon *ngIf="iconoBoton" svgIcon={{iconoBoton}} class="icon">
+  </mat-icon>
+  <p>
+    <span [ngClass]="{ 'texto-boton': cargando }" [ngClass]="{ 'label-gris': labelGris }">{{ textoBoton }}</span>
+    <mat-icon *ngIf="iconoBotonDerecha" svgIcon={{iconoBotonDerecha}} class="icon-derecha">
+    </mat-icon>
+    <ftya-spinner *ngIf="cargando" class="spinner" [size]="24"></ftya-spinner>
+  </p>
+</button>

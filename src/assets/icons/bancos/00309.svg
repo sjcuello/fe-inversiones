@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>[00309] Banco Rioja</title>
+    <g id="[00309]-Banco-Rioja" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Asset-2" transform="translate(5.000000, 5.000000)">
+            <line x1="18.40739" y1="15.90927" x2="31.70302" y2="15.90927" id="Path" stroke="#83398A" stroke-width="2.00716"></line>
+            <line x1="0" y1="15.90927" x2="13.58804" y2="15.90927" id="Path" stroke="#83398A" stroke-width="2.00716"></line>
+            <line x1="13.58804" y1="15.90927" x2="20.24488" y2="27.69592" id="Path" stroke="#83398A" stroke-width="2.00716"></line>
+            <line x1="4.67495" y1="0.13357" x2="11.02133" y2="11.36428" id="Path" stroke="#83398A" stroke-width="2.00716"></line>
+            <line x1="11.20905" y1="20.12214" x2="4.67495" y2="31.68497" id="Path" stroke="#83398A" stroke-width="2.00716"></line>
+            <line x1="20.40733" y1="3.83743" x2="13.58804" y2="15.90927" id="Path" stroke="#83398A" stroke-width="2.00716"></line>
+            <polygon id="Path" fill="#83398A" fill-rule="nonzero" points="2.04687 12.15487 6.79402 12.15487 4.41864 7.4366"></polygon>
+            <polygon id="Path" fill="#83398A" fill-rule="nonzero" points="20.24488 12.15487 24.99203 12.15487 22.61665 7.4366"></polygon>
+            <polygon id="Path" fill="#83398A" fill-rule="nonzero" points="11.21266 28.03526 15.95981 28.03526 13.58804 23.31699"></polygon>
+            <polygon id="Path" fill="#83398A" fill-rule="nonzero" points="2.04687 19.44346 6.79402 19.44346 4.41864 24.16173"></polygon>
+            <polygon id="Path" fill="#83398A" fill-rule="nonzero" points="20.24488 19.44346 24.99203 19.44346 22.61665 24.16173"></polygon>
+            <polygon id="Path" fill="#83398A" fill-rule="nonzero" points="11.21266 3.78328 15.95981 3.78328 13.58804 8.50155"></polygon>
+        </g>
+    </g>
+</svg>

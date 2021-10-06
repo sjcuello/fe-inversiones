@@ -1,0 +1,115 @@
+@import "~src/assets/variables";
+@import "~src/assets/colors";
+
+p {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+}
+
+.spinner {
+  margin-left: 5%;
+  vertical-align: middle;
+}
+
+.texto-boton {
+  margin-top: 3px;
+}
+
+.btn-spv {
+  width: 100%;
+  padding: 15px 25px;
+  border-radius: 8px;
+  font-family: "Whitney", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.13;
+  letter-spacing: 0.1px;
+  white-space: pre-line;
+
+  &__primary {
+    background-color: $rojo;
+    color: $blanco;
+  }
+
+  &__secondary {
+    background-color: $blanco;
+    color: $rojo;
+    border: solid 1px $rojo;
+  }
+
+  &__tertiary {
+    background-color: $rojo-claro-boton !important;
+    color: $rojo !important;
+  }
+
+  &__link {
+    background-color: $blanco;
+    color: $rojo;
+    border: none;
+    font-family: "Heebo", sans-serif;
+  }
+
+  &__deshabilitado {
+    background-color: $gris-blanco;
+    color: $gris-medio-oscuro;
+    border: none;
+    box-shadow: none;
+    pointer-events: none;
+  }
+
+  &:focus {
+    outline: inset;
+    outline-color: $rojo;
+  }
+
+  &.cdk-mouse-focused {
+    outline: none;
+  }
+}
+
+.label-gris {
+  color: $base-negro;
+  font-family: "Heebo", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+  margin: 5px;
+}
+
+.icon {
+  vertical-align: middle;
+  margin: 0 0 5px 0;
+}
+
+.icon-derecha {
+  vertical-align: middle;
+  margin: 0px;
+  width: 14px;
+  height: 14px;
+  margin-top: 4px;
+}
+
+@media (max-width: map_get($grid-breakpoints, "sm")) {
+  :host {
+    width: 90%;
+
+    .btn-spv {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 1300px) {
+  ::ng-deep .mat-button-wrapper {
+    font-size: 14px;
+  }
+}
+
+::ng-deep .mat-flat-button[disabled][disabled] {
+  background-color: $gris-blanco;
+  color: $gris-medio-oscuro;
+}

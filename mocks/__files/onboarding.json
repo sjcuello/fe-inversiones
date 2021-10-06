@@ -1,0 +1,26 @@
+{
+  "fatca": {
+    "pais_ciudadania": {
+      "codigo": 80,
+      "nombre": "Argentina"
+    },
+    "residencia": {
+      "pais": {
+        "codigo": 80,
+        "nombre": "Argentina"
+      },
+      "direccion": "Río de Janeiro 1725",
+      "ciudad": "Villa Allende",
+      "estado": "Córdoba",
+      "cp": 5105
+    },
+    "numero_tributario": 23343270432
+  },
+  "pep": {
+    "motivo": "string"
+  },
+  "actividad_laboral": "Empleado de comercio",
+  "aceptacion_tyc_iol": true,
+  "aceptacion_tyc_spv": true,
+  "telefono": "string"
+}

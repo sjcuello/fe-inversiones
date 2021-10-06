@@ -1,0 +1,8 @@
+<div class="header-inversiones">
+  <button #botonVolver @fadeInOut *ngIf="puedeVolver" class="btn btn-link btn-header btn-back" (click)="navegar()">
+    <em class="icon icon-flecha-izquierda"></em>
+    {{ volverTxt }}
+  </button>
+
+  <h1 class="header-inversiones__titulo">{{ titulo }}</h1>
+</div>

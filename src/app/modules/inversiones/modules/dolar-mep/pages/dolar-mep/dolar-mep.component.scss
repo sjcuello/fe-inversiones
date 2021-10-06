@@ -1,0 +1,244 @@
+@import "~src/assets/colors";
+
+.dolar-mep {
+  background-color: $blanco;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__disclaimer {
+    margin: 50px 0;
+    border: 1px solid $gris-blanco;
+    padding: 20px;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+
+    p {
+      margin: 0;
+      color: $gris-calido;
+      font-size: 16px;
+
+      .icon {
+        display: inline-flex;
+        vertical-align: middle;
+      }
+
+      strong {
+        margin: 0 10px;
+        font-weight: 500;
+        font-size: 18px;
+      }
+    }
+  }
+
+  &__aclaracion {
+    text-align: center;
+    font-size: 14px;
+    color: $gris-calido;
+    margin-top: 20px;
+  }
+
+  &__operaciones {
+    text-align: left;
+    font-size: 12px;
+    color: $gris-calido;
+    margin: 12px 0 40px 0;
+  }
+  &__ttcc {
+    font-size: 12px;
+    margin: 12px 0 40px 5px;
+    color: $rojo;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .contenedor-ttcc {
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 0%;
+  }
+
+  .contenedor-iconos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    width: 95%;
+
+    .linea {
+      border-bottom: 2px solid $violeta;
+      width: 160px;
+      margin: 10px;
+    }
+
+    .linea-punteada {
+      border-bottom: 2px dashed $violeta;
+      width: 160px;
+      margin: 10px;
+    }
+
+    .icon {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &__tabs {
+    width: 85%;
+  }
+
+  &__ordenes-activas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $base-negro;
+    font-family: "Heebo", sans-serif;
+    font-size: 18px;
+    overflow: hidden;
+  }
+
+  &__cotizacion {
+    margin: 50px;
+    background-color: $gris-fondo;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    strong {
+      font-weight: 500;
+    }
+  }
+
+  &__pasos {
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 2%;
+    grid-template-columns: 32% 32% 32%;
+    margin-top: 1%;
+  }
+
+  &__tooltip-icon {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    display: inline-flex;
+    vertical-align: middle;
+  }
+}
+
+.separador {
+  margin-top: 30%;
+}
+
+.cotizacion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cotizacion__titulo {
+  position: static;
+  height: 28px;
+  left: calc(50% - 183px / 2);
+  top: calc(50% - 28px / 2 - 22px);
+  font-family: "Whitney", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  color: $gris-mate;
+}
+
+.cotizacion__dolar {
+  height: 28px;
+  left: calc(50% - 238px / 2);
+  top: calc(50% - 28px / 2 + 22px);
+  font-family: "Heebo", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 28px;
+  color: $gris-mate;
+}
+
+.cotizacion__valor {
+  height: 28px;
+  left: calc(50% - 238px / 2);
+  top: calc(50% - 28px / 2 + 22px);
+  font-family: "Heebo", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 28px;
+  color: $negro;
+}
+
+.cotizacion__tooltip {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.cotizacion__no-disponible {
+  width: 288px;
+  height: 28px;
+  left: calc(50% - 288px / 2 + 0px);
+  top: calc(50% - 28px / 2 - 222px);
+  font-family: "Whitney", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+  color: $gris-calido;
+}
+
+.spinner-tenencia {
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+::ng-deep .mat-tooltip {
+  background-color: $blanco;
+  box-shadow: 0px 1px 2px $negro-sombra;
+  border-radius: 5px;
+  color: $base-negro !important;
+  font-size: 12px;
+  font-family: "Heebo", sans-serif;
+}
+
+::ng-deep {
+  .mat-tab-label-container .mat-tab-list {
+    .mat-ink-bar {
+      background-color: $rojo;
+    }
+
+    .mat-tab-labels {
+      justify-content: center;
+
+      .mat-tab-label {
+        .mat-tab-label-content {
+          color: $gris-calido;
+          font-family: "Whitney", sans-serif;
+          font-size: 18px;
+        }
+
+        &.mat-tab-label-active {
+          opacity: 1;
+
+          .mat-tab-label-content {
+            color: $rojo;
+          }
+        }
+      }
+    }
+  }
+}

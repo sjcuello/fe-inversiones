@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/obi/inversiones/api/v1.0/tycs/spv"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "ttcc.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

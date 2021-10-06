@@ -1,0 +1,5 @@
+{
+  "backendUrl": "${BACKENDURL}",
+  "jwtProviderUrl": "${JWTPROVIDERURL}",
+  "cmsUrl": "${CMSURL}"
+}

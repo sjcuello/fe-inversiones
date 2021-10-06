@@ -1,0 +1,483 @@
+@import "~src/assets/variables";
+@import "~src/assets/colors";
+
+.onboarding {
+    background-color: $blanco;
+    min-height: 100vh;
+    min-width: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.saludo {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 53.93vw;
+    height: 44vh;
+    margin: 11.5vh 0vw;
+
+    .imagen-saludo {
+        width: 23vw;
+        height: 38.71vh;
+        margin: 0vh 1.88vw;
+    }
+
+    .bloque-texto-boton {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .bloque-texto {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 11vh;
+            height: 30.2vh;
+        }
+        .texto {
+            color: $gris-oscuro-texto;
+            font-size: 1.41vw;
+        }
+    }
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 7vw;
+    width: 46vw;
+    margin-top: 14vh;
+
+    .footer-image {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 14.95vw;
+        p {
+            width: 4.3vw;
+            font-size: 0.7vw;
+            margin: 1.8vh 0.3vw;
+        }
+        .imagen {
+            width: 10vw;
+            height: 5.9vh;
+        }
+    }
+
+    .footer-text {
+        display: flex;
+        align-items: center;
+        margin-left: 4.1vw;
+        p {
+            font-size: 0.7vw;
+        }
+    }
+}
+
+.texto-titulo {
+    font-size: 2.55vw;
+    color: $negro-saludo;
+    margin-bottom: 1.5vh !important;
+}
+
+.boton-bordo {
+    ::ng-deep {
+        button {
+            background-color: $rojo-bordo;
+            color: $blanco;
+
+            width: 18.12vw;
+            height: 6.66vh;
+            padding: 1.325vh 1.76vw;
+        }
+        p {
+            font-size: 1.15vw;
+        }
+    }
+}
+.boton-largo {
+    ::ng-deep {
+        button {
+            width: 50vw !important;
+        }
+    }
+}
+.boton-volver {
+    ::ng-deep {
+        button {
+            margin-top: 2vh;
+            color: $negro-saludo;
+            width: 18.12vw;
+            height: 6.66vh;
+            padding: 1.325vh 1.76vw;
+        }
+        p {
+            font-size: 1.15vw;
+        }
+    }
+}
+
+.perfil-del-inversor {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 53.93vw;
+    margin-top: 10.5vh;
+
+    .imagen-inversor {
+        width: 16.88vw;
+        height: 29.6vh;
+        margin: 0vh 1.88vw;
+    }
+
+    .bloque-texto-inversor {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 29.26vw;
+
+        .texto-inversor {
+            color: $gris-oscuro-texto;
+            font-size: 1.2vw;
+            margin-bottom: 2.65vh !important;
+        }
+        .texto-inversor-pre-lista{
+            margin-bottom: 0px !important;
+            color: $gris-oscuro-texto;
+            font-size: 1.2vw;
+        }
+    }
+    .botones-inversor {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: 26vw;
+    }
+}
+
+.felicitaciones{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 53.93vw;
+    height: 44vh;
+    margin: 11.5vh 0vw;
+
+    .imagen-felicitaciones {
+        width: 21vw;
+        height: 35.71vh;
+        margin: 0vh 1.88vw;
+    }
+
+    .bloque-texto-boton-felicitaciones {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .bloque-texto-felicitaciones {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 11vh;
+            height: 30.2vh;
+        }
+        .texto-felicitaciones {
+            color: $gris-oscuro-texto;
+            font-size: 1.6vw;
+        }
+        .texto-pequenio{
+            color: $gris-oscuro-texto;
+            font-size: 1.3vw;
+        }
+    }
+}
+
+.contenedor {
+    margin: 2% 25% 2% 25%;
+}
+
+.divider {
+    background-color: $gris-blanco;
+}
+
+.bloque {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 40px 0;
+    .toggle {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        .texto-toggle {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 24px;
+            color: #3b3a45;
+            padding: 0 !important;
+            flex: none;
+            order: 0;
+            flex-grow: 1;
+            margin: 0px;
+        }
+    }
+    .titulo-select {
+        margin-top: 3%;
+        width: 100%;
+        height: 20px;
+        left: 0px;
+        top: 0px;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.1px;
+    }
+    .titulo-select-error{
+        color: $rojo-error !important;
+    }
+    ::ng-deep .mat-error{
+        color:$rojo-error !important;
+    }
+}
+.resalta-texto {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    text-decoration-line: underline;
+    color: #3b3a45;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 14px 0;
+    cursor: pointer;
+}
+
+.terminos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 40px 0;
+    .texto-resumen {
+        text-align: justify;
+        width: 100%;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 20px;
+
+        letter-spacing: 0.1px;
+        color: #575768;
+        flex: none;
+        order: 1;
+        align-self: stretch;
+        flex-grow: 0;
+        margin: 4px 0px;
+    }
+    .termino {
+        display: flex;
+        align-items: start;
+        margin: 0 0 24px 0;
+        .texto-ttcc {
+            width: 100%;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 1.25em;
+            letter-spacing: 0.1px;
+            color: #575768;
+            flex: none;
+            order: 1;
+            flex-grow: 1;
+            margin: 0px 8px;
+        }
+    }
+}
+
+.botones {
+    padding: 0 35%;
+}
+
+input[type="checkbox"] {
+    filter: hue-rotate(500deg);
+    vertical-align: middle;
+    margin: 0 10px 0 0;
+    margin-top: 4px;
+}
+
+.icon-tooltip {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    display: inline-flex;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+.lista-actividad {
+    width: 100%;
+    background-color: white;
+    border: 1px solid #f2f2f8;
+    border-radius: 8px;
+}
+
+.lista-actividad-error {
+    width: 100%;
+    background-color: white;
+    border: 1px solid #dd5f20;
+    border-radius: 8px;
+}
+
+.desplegable {
+    display: flex;
+    flex-direction: column;
+    margin: 28px 0;
+    width: 100%;
+}
+
+.formulario {
+    width: 100%;
+}
+
+.input-formulario {
+    border: 1px solid #f2f2f8;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.input-formulario-error {
+    border: 1px solid #dd5f20;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.boton-subida {
+    margin-top: 3%;
+    border-radius: 8px;
+    border: 1px solid #3b3a45;
+    width: 50%;
+}
+
+.input-subida {
+    display: none;
+}
+
+.texto-formato {
+    margin-top: 1%;
+    width: 660px;
+    left: calc(50% - 660px / 2 + 10px);
+    top: 0%;
+    bottom: 0%;
+    font-family: "Heebo", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    color: #993706;
+}
+
+.contenedor-triple {
+    margin-top: 3%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+.fraccion-simple {
+    display: flex;
+    flex-direction: column;
+}
+
+.label-select {
+    color: #898999;
+}
+
+.icono-stepper {
+    height: 40px !important;
+    width: 40px !important;
+    min-height: 40px !important;
+    min-width: 40px !important;
+}
+
+.error-campo {
+    width: 660px;
+    left: calc(50% - 660px / 2 + 10px);
+    margin-top: 8px;
+    top: 0%;
+    bottom: 0%;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    color: $rojo-error !important;
+    flex: none;
+    order: 1;
+    flex-grow: 1;
+    vertical-align: middle;
+}
+
+.titulo-stepper {
+    font-weight: bold;
+}
+
+.titulo-stepper-hide {
+    font-weight: bold;
+    color: $gris-medio-claro;
+}
+
+::ng-deep .mat-form-field-flex {
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+::ng-deep .mat-tooltip {
+    background-color: $blanco;
+    box-shadow: 0px 1px 2px $negro-sombra;
+    border-radius: 5px;
+    color: $base-negro !important;
+    font-size: 12px;
+    font-family: "Heebo", sans-serif;
+}
+
+::ng-deep .mat-form-field-underline,
+.mat-form-field-label {
+    display: none !important;
+}
+::ng-deep .mat-option-text,
+.mat-select-arrow,
+.mat-form-field {
+    color: #3b3a45 !important;
+}
+
+::ng-deep .mat-form-field-wrapper {
+    padding: 0;
+    background-color: $blanco;
+    border-radius: 8px;
+    width: 100%;
+    .mat-form-field-flex,
+    .mat-form-field-appearance-fill {
+        background-color: $blanco;
+        border-radius: 8px !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .contenedor-triple {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

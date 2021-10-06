@@ -1,0 +1,13 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/obi/inversiones/api/v1.0/friends-family?producto=INVERSIONES"
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "friends-family.json",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}

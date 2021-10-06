@@ -1,0 +1,15 @@
+<div class="contenedor-icono">
+  <mat-icon class="icono" (click)="cerrarModal(false)" tabindex="0" (keypress)="cerrarModal(false)">close</mat-icon>
+</div>
+<mat-dialog-content class="modal">
+  <div class="contenido">
+    <h2 class="titulo">{{infoModal.titulo}}</h2>
+    <p class="texto">
+      {{infoModal.contenido}}
+    </p>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions class="botones">
+  <ftya-boton [textoBoton]="textosBoton.ACEPTAR" (accionBoton)="cerrarModal(true)"></ftya-boton>
+  <ftya-boton *ngIf="muestraCancelar" tipoBoton="link" [textoBoton]="textosBoton.CERRAR" (accionBoton)="cerrarModal(false)"></ftya-boton>
+</mat-dialog-actions>

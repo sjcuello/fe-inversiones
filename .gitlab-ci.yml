@@ -1,0 +1,144 @@
+services:
+  - name: docker-spv.artifactory.gscorp.ad/docker-dind:1.0.0
+    alias: docker
+
+variables:
+  APP_NAME: fe-obi-inversiones
+  REPO_NAME: inversiones
+  BUILD_GROUP: snapshot
+  RESOURCE_PATH: .
+  GROUP_ID: ar/com/supervielle
+  REPO_GENERIC: ${REPO_NAME}-generic-local
+  REPO_DOCKER: ${REPO_NAME}.artifactory.gscorp.ad
+  DOCKERFILE: .
+  DOCKER_DRIVER: overlay2
+  DOCKER_HOST: tcp://localhost:2375
+  DOCKER_TLS_CERTDIR: ''
+
+  REPO_SPV: docker-spv.artifactory.gscorp.ad
+  SONAR_HOST_URL: "https://sonarqubede.gscorp.ad"
+  PROJECT: obi
+
+before_script:
+  - export BUILD_VERSION=$(cat package.json | grep '"version"' | cut -d'"' -f4)
+  - echo "$BUILD_VERSION"
+
+stages:
+  - CodeQuality
+  - Build
+  - Package
+  - Deploy
+  - Release
+
+CodeQuality:
+  stage: CodeQuality
+  image: docker-spv.artifactory.gscorp.ad/sonarscanner-nodejs-spv:1.0.1
+  script:
+    - npm install --no-optional
+    - npm run-script build
+    - npm run-script coverage --if-present
+    # - npm run-script accessibility
+    - sonar-scanner -Dsonar.projectKey=${APP_NAME_SONAR} -Dsonar.qualitygate.wait=${QUALITY_GATE_SONAR} -Dsonar.sources=. -Dsonar.host.url=${SONAR_HOST_URL} -Dsonar.login=${SONAR_TOKEN}
+#  only:
+#    - tags
+
+Build:
+  image: docker-spv.artifactory.gscorp.ad/angular-karma-spv:9.0.1
+  stage: Build
+  script:
+    - npm install --no-optional
+    - export COMMIT=$(git show --oneline -s | cut -c 1-7)
+    - echo ${BUILD_VERSION}'-'$COMMIT > src/assets/version.txt
+    - npm run-script build
+#    - npm run-script testcoverage
+#    - npm run-script accessibility
+  artifacts:
+    paths:
+      - coverage
+      - dist/*
+      - test_results/*.xml
+      - ./allure-results/*.*
+      - src/assets/version.txt
+    expire_in: 3 day
+    reports:
+      junit:
+        - ./**/*test-result.xml
+        - ./**/*accessibility-result.xml
+
+Package Generic:
+  stage: Package
+  image: docker-spv.artifactory.gscorp.ad/docker-jfrog:1.0.0
+  script:
+    - BASE=$(pwd)
+    - cd ${RESOURCE_PATH}/build.config
+    - zip -r ../$APP_NAME-$BUILD_VERSION-config.zip config
+    - if [ -d ${BASE}/${RESOURCE_PATH}/build.migrations ] ; then cd ${BASE}/${RESOURCE_PATH}/build.migrations && zip -r ../${APP_NAME}-${BUILD_VERSION}-flyway.zip db ; fi
+    - if [ -d ${BASE}/${RESOURCE_PATH}/build.apic ] ; then cd ${BASE}/${RESOURCE_PATH}/build.apic && zip -r ../${APP_NAME}-${BUILD_VERSION}-apic.zip * ; fi
+    - cd ${BASE}/${RESOURCE_PATH}
+    - jfrog rt config artifactory.gscorp.ad --url=${ARTIFACTORY_URL} --user=${ARTIFACTORY_USER} --password=${ARTIFACTORY_PASS}
+    - jfrog rt u "${APP_NAME}-${BUILD_VERSION}-*.zip" ${REPO_GENERIC}/${BUILD_GROUP}/${GROUP_ID}/${APP_NAME}/${BUILD_VERSION}/
+  artifacts:
+    paths:
+      - ${BASE}/${RESOURCE_PATH}/${APP_NAME}-*.zip
+    expire_in: 1 day
+  rules:
+    - if: '$GITFLOW != "true"'
+    - if: '$GITFLOW == "true" && $CI_COMMIT_TAG != null'
+    - if: '$GITFLOW == "true" && $CI_COMMIT_BRANCH == "develop"'
+    - if: '$GITFLOW == "true" && $CI_COMMIT_BRANCH =~ /^hotfix-.*/'
+
+Package Docker:
+  image: docker-spv.artifactory.gscorp.ad/docker-jfrog:1.0.0
+  stage: Package
+  script:
+    - docker login ${REPO_DOCKER} -u ${ARTIFACTORY_USER} -p ${ARTIFACTORY_PASS}
+    - docker login ${REPO_SPV} -u ${ARTIFACTORY_USER} -p ${ARTIFACTORY_PASS}
+    - docker build -t ${APP_NAME}:${BUILD_VERSION} ${DOCKERFILE}
+    - docker images
+    - docker tag ${APP_NAME}:${BUILD_VERSION} ${REPO_DOCKER}/snapshot/${APP_NAME}:${BUILD_VERSION}
+    - docker tag ${APP_NAME}:${BUILD_VERSION} ${REPO_DOCKER}/snapshot/${APP_NAME}:latest
+    - docker push ${REPO_DOCKER}/snapshot/${APP_NAME}:${BUILD_VERSION}
+    - docker push ${REPO_DOCKER}/snapshot/${APP_NAME}:latest
+  rules:
+    - if: '$GITFLOW != "true"'
+    - if: '$GITFLOW == "true" && $CI_COMMIT_TAG != null'
+    - if: '$GITFLOW == "true" && $CI_COMMIT_BRANCH == "develop"'
+    - if: '$GITFLOW == "true" && $CI_COMMIT_BRANCH =~ /^hotfix-.*/'
+
+Deploy Develop:
+  stage: Deploy
+  image: devops.artifactory.gscorp.ad/rundeck-cli:1.0.0
+  script:
+    - java -jar /rundeck/bin/rundeck-cli.jar run -f --id $RUNDECK_JOB -- -Project ${REPO_NAME} -Application ${APP_NAME} -Phases snapshot -Version ${BUILD_VERSION}
+  rules:
+    - if: '$GITFLOW != "true"'
+    - if: '$GITFLOW == "true" && $CI_COMMIT_TAG != null'
+    - if: '$GITFLOW == "true" && $CI_COMMIT_BRANCH == "develop"'
+    - if: '$GITFLOW == "true" && $CI_COMMIT_BRANCH =~ /^hotfix-.*/'
+
+Release Docker:
+  image: docker-spv.artifactory.gscorp.ad/docker-jfrog:1.0.0
+  stage: Release
+  script:
+    - jfrog rt config artifactory.gscorp.ad --url=${ARTIFACTORY_URL} --user=${ARTIFACTORY_USER} --password=${ARTIFACTORY_PASS} --insecure-tls=true
+    - jfrog rt cp ${REPO_NAME}/${BUILD_GROUP}/${APP_NAME}/${BUILD_VERSION} ${REPO_NAME}/release/${APP_NAME}/${BUILD_VERSION} --flat
+  rules:
+    - if: '$CI_COMMIT_TAG != null'
+
+Release Generic:
+  image: docker-spv.artifactory.gscorp.ad/docker-jfrog:1.0.0
+  stage: Release
+  script:
+    - jfrog rt config artifactory.gscorp.ad --url=${ARTIFACTORY_URL} --user=${ARTIFACTORY_USER} --password=${ARTIFACTORY_PASS} --insecure-tls=true
+    - jfrog rt cp ${REPO_GENERIC}/${BUILD_GROUP}/${GROUP_ID}/${APP_NAME}/${BUILD_VERSION}/\* $REPO_GENERIC/release/${GROUP_ID}/${APP_NAME}/${BUILD_VERSION}/ --flat
+  rules:
+    - if: '$CI_COMMIT_TAG != null'
+
+Release Artifactory:
+  stage: Release
+  image: docker-spv.artifactory.gscorp.ad/docker-jfrog:1.0.${JDK_VERSION}
+  script:
+    - jfrog rt config artifactory.gscorp.ad --url=${ARTIFACTORY_URL} --user=${ARTIFACTORY_USER} --password=${ARTIFACTORY_PASS}
+    - jfrog rt cp ${REPO_MVN}/${BUILD_GROUP}/${GROUP_ID}/${APP_NAME}/${BUILD_VERSION} ${REPO_MVN}/release/${GROUP_ID}/${APP_NAME}/${BUILD_VERSION} --flat
+  rules:
+    - if: '$LANG == "java" && $CI_COMMIT_TAG != null'

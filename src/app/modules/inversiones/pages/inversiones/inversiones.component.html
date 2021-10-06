@@ -1,0 +1,118 @@
+<div class="mt-4 mb-2">
+    <div class="container" style="max-width: 1281px;">
+        <span class="titulo">{{textosHomeInversiones.TITULO}}</span>
+
+    </div>
+    <hr style=" max-width: 1281px;left: 200px;top: 181px; border: 2px solid #EDEDED; background-color: #EDEDED;">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                <a routerLink="" (click)="redirigir('obi','plazo-fijo')">
+                    <div class="card mt-2 mb-2">
+                        <div class="content-icon">
+                            <mat-icon svgIcon="plazo-fijo" class="icon"></mat-icon>
+                        </div>
+                        <div class="content-titulo">
+                            <span class="titulo-card">{{textosHomeInversiones.PLAZO_FIJO.TITULO}}</span>
+                        </div>
+
+                        <div class="box-parrafo">
+                            <span class="parrafo-card">{{textosHomeInversiones.PLAZO_FIJO.DESCRIPCION}}</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12" >
+                <a routerLink="" (click)="redirigir('obi','cambios')">
+                    <div class="card mt-2 mb-2">
+                        <div class="content-icon">
+                            <mat-icon svgIcon="cambio-moneda" class="icon"></mat-icon>
+                        </div>
+                        <div class="content-titulo">
+                            <span class="titulo-card">{{textosHomeInversiones.CAMBIO_MONEDA.TITULO}}</span>
+                        </div>
+
+                        <div class="box-parrafo">
+                            <span class="parrafo-card">{{textosHomeInversiones.CAMBIO_MONEDA.DESCRIPCION}}</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12" >
+                <a routerLink="" (click)="redirigir('HBI','inversiones-FCI')">
+                    <div class="card mt-2 mb-2">
+                        <div class="content-icon">
+                            <mat-icon svgIcon="fci" class="icon"></mat-icon>
+                        </div>
+                        <div class="content-titulo-fci">
+                            <span class="titulo-card">{{textosHomeInversiones.FONDOS_COMUNES.TITULO}}</span>
+                        </div>
+
+                        <div class="box-parrafo ">
+                            <span class="parrafo-card ">{{textosHomeInversiones.FONDOS_COMUNES.DESCRIPCION}}</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12" >
+                <a routerLink="" (click)="redirigir('HBI','inversiones-bonosAcciones')">
+                    <div class="card mt-2 mb-2">
+                        <div class="content-icon">
+                            <mat-icon svgIcon="titulos-acciones" class="icon"></mat-icon>
+                        </div>
+                        <div class="content-titulo">
+                            <span class="titulo-card">{{textosHomeInversiones.TITULO_ACCIONES.TITULO}}</span>
+                        </div>
+
+                        <div class="box-parrafo">
+                            <span class="parrafo-card">{{textosHomeInversiones.TITULO_ACCIONES.DESCRIPCION}}</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12" >
+                <a routerLink="" (click)="redirigir('HBI','inversiones-cajaseguridad')">
+                    <div class="card mt-2 mb-2">
+
+                        <div class="content-icon">
+                            <mat-icon svgIcon="caja-de-seguridad" class="icon"></mat-icon>
+                        </div>
+
+                        <div class="content-titulo">
+                            <span class="titulo-card">{{textosHomeInversiones.CAJA_SEGURIDAD.TITULO}}</span>
+                        </div>
+
+                        <div class="box-parrafo">
+                            <span class="parrafo-card">{{textosHomeInversiones.CAJA_SEGURIDAD.DESCRIPCION}}</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12" >
+                <a routerLink="">
+                    <div class="card mt-2 mb-2">
+
+                        <div class="content-icon">
+                            <mat-icon svgIcon="dolar-mep" class="icon"></mat-icon>
+                        </div>
+
+                        <div class="content-titulo">
+                            <span class="titulo-card">{{textosHomeInversiones.DOLAR_MEP.TITULO}}</span>
+                            <img id="logo-invertir-online" src="assets/images/logo-invertir-online-nuevo.png"
+                                alt="Logo invertir online">
+                        </div>
+                        <div class="box-parrafo">
+                            <span class="parrafo-card-especial">{{textosHomeInversiones.DOLAR_MEP.DESCRIPCION}}</span>
+                        </div>
+                        <div class="pie-card">
+                            <span class="pie-texto">{{textoPieCard}}</span>
+                            <img src="assets/images/invertir-online-nuevo.svg" alt="Invertir online">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

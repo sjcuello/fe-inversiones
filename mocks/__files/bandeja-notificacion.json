@@ -1,0 +1,37 @@
+{
+    "no_leidas": 0,
+    "lista_notificaciones": [{
+            "id": 0,
+            "nombre": "Seguimiento de tu tarjeta Visa",
+            "descripcion": "Tenemos una nueva actualización en el envío de tu tarjeta. Consultá el cambio de estado.",
+            "link_call_to_action": {
+                "href": "/obi/tarjetas/delivery/020271041692159",
+                "descripcion": "Ver seguimiento"
+            },
+            "leido": true,
+            "fecha_alta": "2021-07-12T17:38:37.0848528Z"
+        },
+        {
+            "id": 0,
+            "nombre": "Seguimiento de tu tarjeta Débito Visa",
+            "descripcion": "Tenemos una nueva actualización en el envío de tu tarjeta. Consultá el cambio de estado.",
+            "link_call_to_action": {
+                "href": "/obi/tarjetas/delivery/140046/debito",
+                "descripcion": "Ver seguimiento"
+            },
+            "leido": true,
+            "fecha_alta": "2021-07-12T17:38:36.8910886Z"
+        },
+        {
+            "id": 0,
+            "nombre": "Seguimiento de tu tarjeta Mastercard",
+            "descripcion": "Tenemos una nueva actualización en el envío de tu tarjeta. Consultá el cambio de estado.",
+            "link_call_to_action": {
+                "href": "/obi/tarjetas/delivery/011670002079126",
+                "descripcion": "Ver seguimiento"
+            },
+            "leido": true,
+            "fecha_alta": "2021-07-12T17:38:36.665641Z"
+        }
+    ]
+}

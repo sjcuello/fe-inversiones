@@ -1,0 +1,24 @@
+<mat-sidenav-container [hasBackdrop]="true" class="example-container">
+  <mat-sidenav
+    #sidenav
+    role="navigation"
+    mode="over"
+    [fixedInViewport]="true"
+    (openedStart)="abrioMenu()"
+    (closedStart)="cerroMenu()"
+  >
+    <shared-side-menu ($sideMenuState)="sidenav.toggle($event)"></shared-side-menu>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="contenedor">
+    <shared-tooltip-nuevo-menu></shared-tooltip-nuevo-menu>
+
+    <shared-header class="header" ($sideMenuState)="sidenav.toggle($event)"></shared-header>
+
+    <main role="main">
+      <router-outlet></router-outlet>
+    </main>
+
+    <shared-footer class="footer"></shared-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,227 @@
+{
+  "cuenta_predeterminada": "02100500800000000008827000000000003001",
+  "cuentas": [
+    {
+      "identificador": "02100500800000000008827000000000003001",
+      "tipo_cuenta": "CA",
+      "saldo": 79298362508.74,
+      "numero": "5-8827-3",
+      "moneda": {
+        "codigo": 80,
+        "simbolo": "$",
+        "descripcion": "Pesos"
+      },
+      "estado": "normal",
+      "es_cliente_empresa": false
+    },
+    {
+      "identificador": "02103600800000000054269000000000002001",
+      "tipo_cuenta": "CA",
+      "saldo": 99976032.65,
+      "numero": "36-54269-2",
+      "moneda": {
+        "codigo": 80,
+        "simbolo": "$",
+        "descripcion": "Pesos"
+      },
+      "estado": "normal",
+      "es_cliente_empresa": false
+    },
+    {
+      "identificador": "02100500800000000008827000000000002001",
+      "tipo_cuenta": "CA",
+      "saldo": 52484954.12,
+      "numero": "5-8827-2",
+      "moneda": {
+        "codigo": 80,
+        "simbolo": "$",
+        "descripcion": "Pesos"
+      },
+      "estado": "normal",
+      "es_cliente_empresa": false
+    },
+    {
+      "identificador": "02100500800000000064944000000000001001",
+      "tipo_cuenta": "CA",
+      "saldo": 49999993,
+      "numero": "5-64944-1",
+      "moneda": {
+        "codigo": 80,
+        "simbolo": "$",
+        "descripcion": "Pesos"
+      },
+      "estado": "normal",
+      "es_cliente_empresa": false
+    },
+    {
+      "identificador": "02100500800000000064944000000000003001",
+      "tipo_cuenta": "CA",
+      "saldo": 10000,
+      "numero": "5-64944-3",
+      "moneda": {
+        "codigo": 80,
+        "simbolo": "$",
+        "descripcion": "Pesos"
+      },
+      "estado": "normal",
+      "es_cliente_empresa": false
+    },
+    {
+      "identificador": "02110000800000000064944000000000004068",
+      "tipo_cuenta": "CA",
+      "saldo": 2500,
+      "numero": "100-64944-4",
+      "moneda": {
+        "codigo": 80,
+        "simbolo": "$",
+        "descripcion": "Pesos"
+      },
+      "estado": "tramite (tramite p/apertura)",
+      "es_cliente_empresa": false
+    },
+    {
+      "identificador": "02110000800000000064944000000000005048",
+      "tipo_cuenta": "CA",
+      "saldo": 2500,
+      "numero": "100-64944-5",
+      "moneda": {
+        "codigo": 80,
+        "simbolo": "$",
+        "descripcion": "Pesos"
+      },
+      "estado": "tramite (tramite p/apertura)",
+      "es_cliente_empresa": false
+    },
+    {
+      "identificador": "02110000800000000064944000000000006068",
+      "tipo_cuenta": "CA",
+      "saldo": 2500,
+      "numero": "100-64944-6",
+      "moneda": {
+        "codigo": 80,
+        "simbolo": "$",
+        "descripcion": "Pesos"
+      },
+      "estado": "tramite (tramite p/apertura)",
+      "es_cliente_empresa": false
+    },
+    {
+      "identificador": "02110000800000000054269000000000005006",
+      "tipo_cuenta": "CA",
+      "saldo": 2500,
+      "numero": "100-54269-5",
+      "moneda": {
+        "codigo": 80,
+        "simbolo": "$",
+        "descripcion": "Pesos"
+      },
+      "estado": "tramite (tramite p/apertura)",
+      "es_cliente_empresa": false
+    },
+    {
+      "identificador": "02000500800000000008827000000000001001",
+      "tipo_cuenta": "CC",
+      "saldo": -28300,
+      "numero": "5-8827-1",
+      "moneda": {
+        "codigo": 80,
+        "simbolo": "$",
+        "descripcion": "Pesos"
+      },
+      "estado": "normal",
+      "es_cliente_empresa": false
+    },
+    {
+      "identificador": "02010000800000000054269000000000001001",
+      "tipo_cuenta": "CC",
+      "saldo": 0,
+      "numero": "100-54269-1",
+      "moneda": {
+        "codigo": 80,
+        "simbolo": "$",
+        "descripcion": "Pesos"
+      },
+      "estado": "normal",
+      "es_cliente_empresa": false
+    },
+    {
+      "identificador": "02100500020000000008827000000000004001",
+      "tipo_cuenta": "CA",
+      "saldo": 50001478.57,
+      "numero": "5-8827-4",
+      "moneda": {
+        "codigo": 2,
+        "simbolo": "U$S",
+        "descripcion": "Dólares"
+      },
+      "estado": "normal",
+      "es_cliente_empresa": false
+    },
+    {
+      "identificador": "02110000020000000054269000000000003001",
+      "tipo_cuenta": "CA",
+      "saldo": 50000148.89,
+      "numero": "100-54269-3",
+      "moneda": {
+        "codigo": 2,
+        "simbolo": "U$S",
+        "descripcion": "Dólares"
+      },
+      "estado": "normal",
+      "es_cliente_empresa": false
+    },
+    {
+      "identificador": "02100500020000000008827000000000005001",
+      "tipo_cuenta": "CA",
+      "saldo": 14256.89,
+      "numero": "5-8827-5",
+      "moneda": {
+        "codigo": 2,
+        "simbolo": "U$S",
+        "descripcion": "Dólares"
+      },
+      "estado": "normal",
+      "es_cliente_empresa": false
+    },
+    {
+      "identificador": "02100500020000000064944000000000002013",
+      "tipo_cuenta": "CA",
+      "saldo": 2500,
+      "numero": "5-64944-2",
+      "moneda": {
+        "codigo": 2,
+        "simbolo": "U$S",
+        "descripcion": "Dólares"
+      },
+      "estado": "normal",
+      "es_cliente_empresa": false
+    },
+    {
+      "identificador": "02100500980000000008827000000000006001",
+      "tipo_cuenta": "CA",
+      "saldo": 1197,
+      "numero": "5-8827-6",
+      "moneda": {
+        "codigo": 98,
+        "simbolo": "EUR",
+        "descripcion": "Euros"
+      },
+      "estado": "normal",
+      "es_cliente_empresa": false
+    },
+    {
+      "identificador": "02103600980000000054269000000000004001",
+      "tipo_cuenta": "CA",
+      "saldo": 11,
+      "numero": "36-54269-4",
+      "moneda": {
+        "codigo": 98,
+        "simbolo": "EUR",
+        "descripcion": "Euros"
+      },
+      "estado": "normal",
+      "es_cliente_empresa": false
+    }
+  ],
+  "es_cliente_empresa": false
+}

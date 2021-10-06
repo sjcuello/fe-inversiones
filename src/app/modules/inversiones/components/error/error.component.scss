@@ -1,0 +1,42 @@
+@import "~src/assets/colors";
+
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 15px;
+
+  &--icono {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 102px;
+    width: 100px;
+    margin: 32px auto 18px auto;
+  }
+
+  &--contenido {
+    margin-top: 40px;
+  }
+
+  &--titulo {
+    font-family: 'Whitney', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.27;
+    letter-spacing: -0.37px;
+    text-align: center;
+    color: $base-negro;
+  }
+
+  &--subtitulo {
+    font-size: 14px;
+    line-height: 1.29;
+    text-align: center;
+    color: $base-negro;
+  }
+
+  &--boton {
+    margin: 40px 0;
+  }
+}
